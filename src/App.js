@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, Download, Heart, WandSparkles, X, Copy } from 'lucide-react';
 
+// टेम्पलेट का डेटा अब सिर्फ 3 श्रेणियों के लिए है
 const templatesData = [
-    { id: 1, name: 'Classic Floral Invitation', previewImages: ['https://i.ibb.co/mrMFDSyT/wedding-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', aiPrompt: `Draft a formal wedding invitation for [FEMALE_NAME] and [MALE_NAME], who are getting married on [WEDDING_DATE] at [ADDRESS]. Request guests' presence to celebrate their union. Ensure the tone is elegant and traditional.` },
-    { id: 2, name: 'Modern Geometric Save-the-Date', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', aiPrompt: `Create a concise and modern save-the-date message for [FEMALE_NAME] and [MALE_NAME]'s wedding. The date is [WEDDING_DATE]. Mention that formal invitations will follow. Keep it short and chic.` },
-    { id: 3, name: 'Elegant Thank You Card', previewImages: ['https://images.unsplash.com/photo-1558902804-f7de5d85c490?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Thank You Cards', aiPrompt: `Write a heartfelt thank you note from [FEMALE_NAME] and [MALE_NAME] for gifts received after their wedding on [WEDDING_DATE]. Express gratitude sincerely.` },
-    { id: 4, name: 'Rustic Wedding Program', previewImages: ['https://images.unsplash.com/photo-1549923289-518f8bff3c3d?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', EPS: '#', PNG: '#' }, category: 'Programs', aiPrompt: `Generate a wedding program outline for the marriage of [FEMALE_NAME] and [MALE_NAME] on [WEDDING_DATE] at [ADDRESS], including ceremony events (e.g., Processional, Vows, Recessional). Adopt a rustic, natural tone.` },
-    { id: 5, name: 'Luxury Menu Card', previewImages: ['https://images.unsplash.com/photo-1607921232004-92a061c0d5a3?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { JPG: '#', PNG: '#' }, category: 'Menu Cards', aiPrompt: `Create a sophisticated wedding menu for [FEMALE_NAME] and [MALE_NAME]'s reception on [WEDDING_DATE]. Suggest a starter, main course (vegetarian and non-vegetarian options), and dessert. Ensure it sounds exquisite.` },
-    { id: 6, name: 'Minimalist Seating Plan', previewImages: ['https://images.unsplash.com/photo-1551893128-213b10860475?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', EPS: '#' }, category: 'Seating Plans', aiPrompt: `Provide an example seating arrangement for [FEMALE_NAME] and [MALE_NAME]'s wedding reception on [WEDDING_DATE] at [ADDRESS], suggesting a head table and a few guest tables with names. Optimize for clear readability.` },
+    // Invitations
+    { id: 1, name: 'Classic Floral Invitation', previewImages: ['https://images.unsplash.com/photo-1593563919199-35f6f477a3ce?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations', aiPrompt: `Draft a formal wedding invitation for [FEMALE_NAME] and [MALE_NAME], who are getting married on [WEDDING_DATE] at [ADDRESS]. Request guests' presence to celebrate their union. Ensure the tone is elegant and traditional.` },
     { id: 7, name: 'Watercolor Invitation Suite', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', aiPrompt: `Draft a modern, watercolor-themed wedding invitation for [FEMALE_NAME] and [MALE_NAME]'s wedding on [WEDDING_DATE] at [ADDRESS]. Emphasize an artistic and fluid style in the wording.` },
+
+    // Save the Date
+    { id: 2, name: 'Modern Geometric Save-the-Date', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', aiPrompt: `Create a concise and modern save-the-date message for [FEMALE_NAME] and [MALE_NAME]'s wedding. The date is [WEDDING_DATE]. Mention that formal invitations will follow. Keep it short and chic.` },
     { id: 8, name: 'Vintage Save-the-Date Postcard', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', aiPrompt: `Write a charming, vintage-style save-the-date postcard message for [FEMALE_NAME] and [MALE_NAME]'s wedding on [WEDDING_DATE]. Keep it sweet and nostalgic.` },
+
+    // Clipart
+    { id: 9, name: 'Wedding Rings Clipart', previewImages: ['https://images.unsplash.com/photo-1598818382438-654f024e0b82?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', EPS: '#' }, category: 'Clipart', aiPrompt: `Generate a short, cheerful caption for a wedding clipart featuring two interlocking rings.` },
+    { id: 10, name: 'Just Married Car Clipart', previewImages: ['https://images.unsplash.com/photo-1541334823339-3837130a1f59?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', SVG: '#' }, category: 'Clipart', aiPrompt: `Create a fun and celebratory message for a clipart showing a "Just Married" car.` },
+    { id: 11, name: 'Flower Bouquets Clipart', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', aiPrompt: `Write a simple, elegant description for a beautiful floral bouquet clipart.` }
 ];
 
 const Header = () => (
@@ -30,7 +35,8 @@ const Header = () => (
 );
 
 const HeroSection = ({ searchTerm, setSearchTerm }) => (
-  <section className="relative text-center py-20 md:py-32 bg-violet-50 overflow-hidden">
+  // यहाँ बदलाव किया गया है: py-20 md:py-32 को py-12 md:py-16 कर दिया है
+  <section className="relative text-center py-12 md:py-16 bg-violet-50 overflow-hidden">
     <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
     <div className="container mx-auto px-6 relative z-10">
       <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
