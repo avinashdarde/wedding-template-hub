@@ -1,38 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, WandSparkles, X, Copy } from 'lucide-react';
+import { Search, Download, Heart, WandSparkles, X, Copy, ShoppingCart } from 'lucide-react';
 
-// टेम्पलेट का डेटा अब सिर्फ 3 श्रेणियों के लिए है
 const templatesData = [
-    // Invitations
-    { id: 1, name: 'Wedding Invitation Template', price: '80', paymentLink: 'https://rzp.io/rzp/D4GOvlKM', previewImages: ['https://i.ibb.co/mrMFDSyT/wedding-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing', }, category: 'Invitations',},
-    { id: 2, name: 'Wedding Invitation Template', previewImages: ['https://i.ibb.co/4RJs9Yyt/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1ysLv_Up-d-jv8t9soRMZqJ-bh-yps8bX/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1AmUoEiHsYKhnxarGlZ4iRrPG4XdMNJBt/view?usp=sharing' }, category: 'Invitations', category: 'Invitations',},
-    { id: 3, name: 'Wedding Invitation Template', previewImages: ['https://i.ibb.co/hxhx18Pz/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1TGOccFkayTgzvvZZ5A7TNK_1ZFl3cFtl/view?usp=sharing', JPG: 'https://drive.google.com/file/d/14FGucMO0lOqSAxp9M4U9T2UCgmeOAw_R/view?usp=sharing', }, category: 'Invitations', category: 'Invitations',},
-    { id: 4, name: 'Indean Wedding Invitation Template', previewImages: ['https://i.ibb.co/qMB154xY/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/17xxGUfyT8nzw6nEirOTHYXuYYR_gOkPU/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1QYuxf6KzrDok7OplAckJQrBB1DauV9Cf/view?usp=sharing' }, category: 'Invitations', category: 'Invitations',},
-    { id: 5, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/Jj09Pc1r/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1FloCAxC6yS2oDqmxG6bMdW54XkawulBj/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1PMNoWGuMi8V0xpOW1tMP8C6xtZS_4F88/view?usp=sharing' }, category: 'Invitations', category: 'Invitations',},
-    { id: 6, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/Mxr6qg9S/wedding-invitation-tamplate-2.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/17kkYdULTchx7GnSJ2QfIf5rKbfKguLcl/view?usp=sharing', JPG: 'https://drive.google.com/file/d/16kualdL7QjmYuFm99Ets7csoUoiktemf/view?usp=sharing' }, category: 'Invitations',},
-    { id: 7, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/VcdTrZbr/wedding-invitation-tamplate-3.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1CXR71t0f85BfGP-mAlZ9Eqk8CBTbMj9j/view?usp=sharing', JPG: 'https://drive.google.com/file/d/11dfkvdFUxLH2CQwTcVNDyR6b8sUT69SP/view?usp=sharing' }, category: 'Invitations',},
-    { id: 8, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/hxW9Z1R2/wedding-invitation-tamplate-5.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1oknQgcFKigEl7YVPw6hB-tXbvUJcQjPi/view?usp=sharing', JPG: 'https://drive.google.com/file/d/17EM79qr8dlEB5oKNeE3ZRq9c2iMJiwM5/view?usp=sharing' }, category: 'Invitations',},
-    { id: 9, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/twbgvCJG/wedding-invitation-tamplate-6.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1GbELy1c757dWn4xLCujO09Vr4QVzthdc/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1J-LEncEzpuUF0R_eAMWQpkbXfZYGda18/view?usp=sharing' }, category: 'Invitations',},
-    { id: 10, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/213XmTWk/wedding-invitation-tamplate-4.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1Xf-rZCuaJu2eCtmb5TeugXdLOTSy7btw/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1tUPT8NIQcMRuQyxRLRQxpZg2hXYdCKeb/view?usp=sharing' }, category: 'Invitations',},
-    { id: 11, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/q3Fk5X32/wedding-invitation-tamplate-7.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1-gvnEP6ocCT1MXToLqgjz6dABL_jPfyo/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1bNfFhI1uo_wiWC4--K6A7FCB_GI4uIi2/view?usp=sharing' }, category: 'Invitations',},
-    { id: 12, name: 'Wedding Invitation Tamplate', previewImages: ['https://i.ibb.co/0RPVHRtg/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1m4DfArocjz5JnTa_UvOUVAtwl0iP-ON-/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1CbnjD_i9Hb5JdaqVTTaSl8QsLkoqXkGg/view?usp=sharing' }, category: 'Invitations',},
-    { id: 13, name: 'Wedding Invitation Tamplate', previewImages: ['#'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations',},
-
-    // Save the Date
-    { id: 101, name: 'Modern Geometric Save-the-Date', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', aiPrompt: `Create a concise and modern save-the-date message for [FEMALE_NAME] and [MALE_NAME]'s wedding. The date is [WEDDING_DATE]. Mention that formal invitations will follow. Keep it short and chic.` },
-    { id: 200, name: 'Vintage Save-the-Date Postcard', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', aiPrompt: `Write a charming, vintage-style save-the-date postcard message for [FEMALE_NAME] and [MALE_NAME]'s wedding on [WEDDING_DATE]. Keep it sweet and nostalgic.` },
-
-    // Clipart
-    { id: 201, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/twRmgSRQ/wedding-couple-Illutraction-67.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1F3KaJ3DM_ujUI3GvV9D1pP60eu-K05RX/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1zQ6WgAF1TiJJSj_hUeRXAsKLO8K9LtPy/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1BbAezaAna-BnWhKbS4rfm2EYMY54jPkl/view?usp=sharing', }, category: 'Clipart', },
-    { id: 202, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/5gj7xmyT/wedding-couple-Illutraction-66.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/17Ye3NKyku0EEbG_0Ytkb9WQW60FfY0m0/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1Aw3-u9zAW2gp-LQATC4PT9n7m151ucDU/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1QMKznT7OPIOmX6y2FLE8gyu29UrGUcCr/view?usp=sharing', }, category: 'Clipart', },
-    { id: 203, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/spTTffW7/wedding-couple-Illutraction-65.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/19jH3-VlERrLez3p2fDjI47icGUl_r5AH/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1o9Vkcf0eRia2ZBKjj2W9lvsB5jgARdra/view?usp=sharing', JPG: 'https://drive.google.com/file/d/13DOC_xRcwwm9i4dipAKPqFggfOPVtCf4/view?usp=sharing', }, category: 'Clipart', },
-    { id: 204, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/KjShRcLM/wedding-couple-Illutraction-64.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/186Pu9G4r_R30Vx8aiwgbwOX1yetp1oEk/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1IuQCYoK3VB-rj5wcsVqI2v2bAH0-brVn/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1C48QboOGfA2Duim2CVjycTQuzs6UcRDq/view?usp=sharing', }, category: 'Clipart', },
-    { id: 205, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/zTn9X47H/wedding-couple-Illutraction-63.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1XwlDXNMgehZH84alkvZpHFO68WvBX8Y6/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1MTWVMZDaEK1dFz8-oebmiIlZXW6-FiwV/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1tWuLrMlvOeaO8z2zdZJY8udnovZAKyN3/view?usp=sharing', }, category: 'Clipart', },
-    { id: 206, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/WWGbLHpb/wedding-couple-Illutraction-62.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1xb6h7DIii7W8GFZz_Uuh4-cXWud_-Fmw/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1g3iu6YvUIng8W3OXPR0e29wsRKvmmLwA/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1RCxJGNGF7T7vpFRSY-0D_LXxTVfPuu8G/view?usp=sharing', }, category: 'Clipart', },
-    { id: 207, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/spTTffW7/wedding-couple-Illutraction-65.jpg'], downloadFormats: { PNG: '#', EPS: '#', JPG: '#', }, category: 'Clipart', },
-    { id: 208, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/spTTffW7/wedding-couple-Illutraction-65.jpg'], downloadFormats: { PNG: '#', EPS: '#', JPG: '#', }, category: 'Clipart', },
-    { id: 209, name: 'Wedding couple Clipart', previewImages: ['https://i.ibb.co/spTTffW7/wedding-couple-Illutraction-65.jpg'], downloadFormats: { PNG: '#', EPS: '#', JPG: '#', }, category: 'Clipart', },
-    { id: 210, name: 'Wedding couple Clipart', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', }
+    { id: 1, name: 'Classic Floral Invitation', price: '80', paymentLink: 'https://rzp.io/rzp/D4GOvlKM', previewImages: ['https://i.ibb.co/mrMFDSyT/wedding-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing', }, category: 'Invitations', aiPrompt: `Draft a formal wedding invitation for [FEMALE_NAME] and [MALE_NAME], who are getting married on [WEDDING_DATE] at [ADDRESS].` },
+    { id: 7, name: 'Watercolor Invitation Suite', price: '249', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', aiPrompt: `Draft a modern, watercolor-themed wedding invitation for [FEMALE_NAME] and [MALE_NAME]'s wedding on [WEDDING_DATE] at [ADDRESS].` },
+    { id: 2, name: 'Modern Geometric Save-the-Date', price: '99', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', aiPrompt: `Create a concise and modern save-the-date message for [FEMALE_NAME] and [MALE_NAME]'s wedding.` },
+    { id: 8, name: 'Vintage Save-the-Date Postcard', price: '149', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', aiPrompt: `Write a charming, vintage-style save-the-date postcard message for [FEMALE_NAME] and [MALE_NAME]'s wedding.` },
+    { id: 9, name: 'Wedding Rings Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1598818382438-654f024e0b82?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', EPS: '#' }, category: 'Clipart', aiPrompt: `Generate a short, cheerful caption for a wedding clipart featuring two interlocking rings.` },
+    { id: 10, name: 'Just Married Car Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1541334823339-3837130a1f59?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', SVG: '#' }, category: 'Clipart', aiPrompt: `Create a fun and celebratory message for a clipart showing a "Just Married" car.` },
+    { id: 11, name: 'Flower Bouquets Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', aiPrompt: `Write a simple, elegant description for a beautiful floral bouquet clipart.` }
 ];
 
 const Header = () => (
@@ -53,7 +29,6 @@ const Header = () => (
 );
 
 const HeroSection = ({ searchTerm, setSearchTerm }) => (
-  // यहाँ बदलाव किया गया है: py-20 md:py-32 को py-12 md:py-16 कर दिया है
   <section className="relative text-center py-12 md:py-16 bg-violet-50 overflow-hidden">
     <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
     <div className="container mx-auto px-6 relative z-10">
@@ -77,7 +52,7 @@ const HeroSection = ({ searchTerm, setSearchTerm }) => (
 
 function TemplateCard({ template, onOpenModal }) {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
+    <div onClick={() => onOpenModal(template)} className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer">
       <div className="aspect-square">
         <img
           src={template.previewImages[0]}
@@ -87,18 +62,12 @@ function TemplateCard({ template, onOpenModal }) {
         />
       </div>
       <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4">
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-          <h3 className="text-white text-lg font-bold mb-2">{template.name}</h3>
+        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 flex justify-between items-center">
+          <h3 className="text-white text-lg font-bold">{template.name}</h3>
           <div className="flex items-center gap-2">
-            <button onClick={() => onOpenModal(template, 'download')} className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors">
-              <Download size={20} />
-            </button>
-            <button onClick={() => onOpenModal(template, 'ai')} className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors">
-              <WandSparkles size={20} />
-            </button>
-            <button className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors ml-auto">
-              <Heart size={20} />
-            </button>
+             <span className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full">
+                <Heart size={20} />
+             </span>
           </div>
         </div>
       </div>
@@ -106,7 +75,8 @@ function TemplateCard({ template, onOpenModal }) {
   );
 }
 
-function Modal({ isOpen, onClose, template, mode, setToastMessage }) {
+function Modal({ isOpen, onClose, template, setToastMessage }) {
+  const [modalView, setModalView] = useState('main');
   const [maleName, setMaleName] = useState('');
   const [femaleName, setFemaleName] = useState('');
   const [weddingDate, setWeddingDate] = useState('');
@@ -116,14 +86,10 @@ function Modal({ isOpen, onClose, template, mode, setToastMessage }) {
   const [aiError, setAiError] = useState('');
 
   useEffect(() => {
-    if (!isOpen) {
-      setMaleName('');
-      setFemaleName('');
-      setWeddingDate('');
-      setAddress('');
+    if (isOpen) {
+      setModalView('main');
       setAiGeneratedText('');
       setAiError('');
-      setIsGenerating(false);
     }
   }, [isOpen]);
 
@@ -174,48 +140,75 @@ function Modal({ isOpen, onClose, template, mode, setToastMessage }) {
     }
   };
 
-  const renderContent = () => {
-    if (mode === 'download') {
-      return (
-        <div>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">Download {template.name}</h3>
-          <div className="flex flex-col gap-3">
-            {Object.entries(template.downloadFormats).map(([format, link]) => (
-              link && (
-                <a key={format} href={link} target="_blank" rel="noopener noreferrer" onClick={onClose} className="block w-full text-center bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
-                  Download .{format}
-                </a>
-              )
-            ))}
-          </div>
+  const renderMainView = () => (
+    <>
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
+        <div className="space-y-4">
+            <a href={template.paymentLink === '#' ? null : template.paymentLink}
+               target="_blank"
+               rel="noopener noreferrer"
+               className={`w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300 ${template.paymentLink === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
+               onClick={(e) => template.paymentLink === '#' && e.preventDefault()}
+            >
+                <ShoppingCart size={20}/> Customise & Pay ₹{template.price}
+            </a>
+            <button onClick={() => setModalView('ai')} className="w-full flex items-center justify-center gap-3 bg-violet-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-600 transition-all duration-300">
+                <WandSparkles size={20}/> Generate Text with AI
+            </button>
+            <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
+                <Download size={20}/> Download Demo
+            </button>
         </div>
-      );
-    }
-    if (mode === 'ai') {
-      return (
-        <div>
-          <h3 className="text-xl font-bold text-gray-800 mb-2">Personalize with AI</h3>
-          <p className="text-gray-500 text-sm mb-4">Enter details to generate content for '{template.name}'</p>
-          <div className="space-y-3">
+    </>
+  );
+
+  const renderAiView = () => (
+    <div>
+        <button onClick={() => setModalView('main')} className="text-sm text-violet-600 mb-3">&larr; Back</button>
+        <h3 className="text-xl font-bold text-gray-800 mb-2">Personalize with AI</h3>
+        <p className="text-gray-500 text-sm mb-4">Enter details to generate content for '{template.name}'</p>
+        <div className="space-y-3">
             <input type="text" placeholder="Male's Name" value={maleName} onChange={(e) => setMaleName(e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-violet-500" />
             <input type="text" placeholder="Female's Name" value={femaleName} onChange={(e) => setFemaleName(e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-violet-500" />
             <input type="text" placeholder="Wedding Date (e.g., June 20, 2026)" value={weddingDate} onChange={(e) => setWeddingDate(e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-violet-500" />
             <input type="text" placeholder="Address / Venue" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-violet-500" />
-          </div>
-          <button onClick={handleGenerateWithAI} disabled={isGenerating} className="w-full mt-4 bg-violet-600 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-violet-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-            <WandSparkles size={20} /> {isGenerating ? 'Generating...' : 'Generate Text'}
-          </button>
-          {aiError && <p className="text-red-600 text-xs mt-2 text-center">{aiError}</p>}
-          {aiGeneratedText && (
-            <div className="mt-4 p-3 bg-gray-50 border border-gray-200 rounded-md">
-              <p className="whitespace-pre-wrap text-gray-700 mb-3 text-sm">{aiGeneratedText}</p>
-              <button onClick={copyToClipboard} className="w-full bg-gray-600 text-white text-xs py-2 rounded-full hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center gap-2">
-                <Copy size={14} /> Copy Text
-              </button>
-            </div>
-          )}
         </div>
-      );
+        <button onClick={handleGenerateWithAI} disabled={isGenerating} className="w-full mt-4 bg-violet-600 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-violet-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+             <WandSparkles size={20}/> {isGenerating ? 'Generating...' : 'Generate Text'}
+        </button>
+        {aiError && <p className="text-red-600 text-xs mt-2 text-center">{aiError}</p>}
+        {aiGeneratedText && (
+            <div className="mt-4 p-3 bg-gray-50 border border-gray-200 rounded-md">
+                <p className="whitespace-pre-wrap text-gray-700 mb-3 text-sm">{aiGeneratedText}</p>
+                <button onClick={copyToClipboard} className="w-full bg-gray-600 text-white text-xs py-2 rounded-full hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center gap-2">
+                    <Copy size={14}/> Copy Text
+                </button>
+            </div>
+        )}
+    </div>
+  );
+
+  const renderDownloadView = () => (
+     <div>
+        <button onClick={() => setModalView('main')} className="text-sm text-violet-600 mb-3">&larr; Back</button>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">Download Demo - {template.name}</h3>
+        <div className="flex flex-col gap-3">
+            {Object.entries(template.downloadFormats).map(([format, link]) => (
+                 link && (
+                    <a key={format} href={link} target="_blank" rel="noopener noreferrer" onClick={onClose} className="block w-full text-center bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
+                        Download .{format}
+                    </a>
+                )
+            ))}
+        </div>
+    </div>
+  );
+
+  const renderContent = () => {
+    switch (modalView) {
+        case 'ai': return renderAiView();
+        case 'download': return renderDownloadView();
+        default: return renderMainView();
     }
   };
 
@@ -250,7 +243,6 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
-  const [modalMode, setModalMode] = useState('download');
   const [toastMessage, setToastMessage] = useState('');
 
   const filteredTemplates = useMemo(() => {
@@ -263,9 +255,8 @@ function App() {
 
   const categories = useMemo(() => ['All', ...new Set(templatesData.map(t => t.category))], []);
 
-  const handleOpenModal = (template, mode) => {
+  const handleOpenModal = (template) => {
     setSelectedTemplate(template);
-    setModalMode(mode);
     setIsModalOpen(true);
   };
 
@@ -311,7 +302,6 @@ function App() {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         template={selectedTemplate}
-        mode={modalMode}
         setToastMessage={setToastMessage}
       />
       {toastMessage && (
