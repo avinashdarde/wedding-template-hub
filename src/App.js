@@ -5,7 +5,7 @@ const initialTemplatesData = [
     // =================================================================
     // ======================= INVITATIONS CATEGORY ======================
     // =================================================================
-    { id: 1, name: 'Classic Floral Invitation', price: '199', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1593563919199-35f6f477a3ce?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations', likes: 252 },
+    { id: 1, name: 'Classic Floral Invitation', price: '80', paymentLink: 'https://rzp.io/rzp/D4GOvlKM', previewImages: ['https://images.unsplash.com/photo-1593563919199-35f6f477a3ce?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations', likes: 252 },
     { id: 7, name: 'Watercolor Invitation Suite', price: '249', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     // Yahan aur Invitations templates jod sakte hain
 
