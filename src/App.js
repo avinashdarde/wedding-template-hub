@@ -193,7 +193,7 @@ const ContactUsPage = () => (
             <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p>
             <p><strong>Email:</strong> <a href="graphifly333@gmail.com" className="text-violet-600 hover:underline">graphifly333@gmail.com</a></p>
             <p><strong>WhatsApp:</strong> <a href="https://wa.me/919075469856" className="text-violet-600 hover:underline">+91 9075469856</a></p>
-            <p><strong>Address:</strong> <a href="#" className="text-violet-600 hover:underline">G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</a></p>
+            <p>G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</p>
             <p>We typically respond within 24 hours.</p>
         </div>
     </div>
