@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, Download, Heart, X, ShoppingCart } from 'lucide-react';
 
-const templatesData = [
+const initialTemplatesData = [
     // =================================================================
     // ======================= INVITATIONS CATEGORY ======================
     // =================================================================
-    { id: 1, name: 'Classic Floral Invitation', price: '199', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1593563919199-35f6f477a3ce?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations' },
-    { id: 2, name: 'Watercolor Invitation Suite', price: '249', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations' },
+    { id: 1, name: 'Classic Floral Invitation', price: '199', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1593563919199-35f6f477a3ce?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations', likes: 252 },
+    { id: 7, name: 'Watercolor Invitation Suite', price: '249', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     // Yahan aur Invitations templates jod sakte hain
 
     // =================================================================
     // ===================== SAVE-THE-DATE CATEGORY ====================
     // =================================================================
-    { id: 1001, name: 'Modern Geometric Save-the-Date', price: '99', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date' },
-    { id: 1002, name: 'Vintage Save-the-Date Postcard', price: '149', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date' },
+    { id: 2, name: 'Modern Geometric Save-the-Date', price: '99', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', likes: 198 },
+    { id: 8, name: 'Vintage Save-the-Date Postcard', price: '149', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
     // Yahan aur Save-the-Date templates jod sakte hain
 
     // =================================================================
     // ======================== CLIPART CATEGORY =======================
     // =================================================================
-    { id: 2001, name: 'Wedding Rings Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1598818382438-654f024e0b82?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', EPS: '#' }, category: 'Clipart' },
-    { id: 2002, name: 'Just Married Car Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1541334823339-3837130a1f59?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', SVG: '#' }, category: 'Clipart' },
-    { id: 2003, name: 'Flower Bouquets Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart' }
+    { id: 9, name: 'Wedding Rings Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1598818382438-654f024e0b82?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', EPS: '#' }, category: 'Clipart', likes: 88 },
+    { id: 10, name: 'Just Married Car Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1541334823339-3837130a1f59?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', SVG: '#' }, category: 'Clipart', likes: 123 },
+    { id: 11, name: 'Flower Bouquets Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
     // Yahan aur Clipart templates jod sakte hain
 ];
 
@@ -64,10 +64,10 @@ const HeroSection = ({ searchTerm, setSearchTerm }) => (
   </section>
 );
 
-function TemplateCard({ template, onOpenModal }) {
+function TemplateCard({ template, onOpenModal, onLike }) {
   return (
-    <div onClick={() => onOpenModal(template)} className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer">
-      <div className="aspect-square">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
+      <div onClick={() => onOpenModal(template)} className="aspect-square cursor-pointer">
         <img
           src={template.previewImages[0]}
           alt={`${template.name} Preview`}
@@ -75,16 +75,18 @@ function TemplateCard({ template, onOpenModal }) {
           onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/400x400/cccccc/333333?text=Image+Not+Found`; }}
         />
       </div>
-      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4">
+      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none">
         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 flex justify-between items-center">
           <h3 className="text-white text-lg font-bold">{template.name}</h3>
-          <div className="flex items-center gap-2">
-             <span className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full">
-                <Heart size={20} />
-             </span>
-          </div>
         </div>
       </div>
+      <button
+        onClick={() => onLike(template.id)}
+        className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors flex items-center gap-1 pointer-events-auto opacity-0 group-hover:opacity-100"
+      >
+        <Heart size={20} />
+        <span className="text-sm font-semibold">{template.likes}</span>
+      </button>
     </div>
   );
 }
@@ -104,7 +106,6 @@ function Modal({ isOpen, onClose, template }) {
         <>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
             <div className="space-y-4">
-                {/* Sirf 'Invitations' category ke liye payment button dikhayein */}
                 {template.category === 'Invitations' && (
                     <a href={template.paymentLink === '#' ? null : template.paymentLink}
                        target="_blank"
@@ -158,20 +159,29 @@ function Modal({ isOpen, onClose, template }) {
 }
 
 function App() {
+  const [templates, setTemplates] = useState(initialTemplatesData);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
 
+  const handleLikeClick = (templateId) => {
+    setTemplates(currentTemplates =>
+      currentTemplates.map(t =>
+        t.id === templateId ? { ...t, likes: t.likes + 1 } : t
+      )
+    );
+  };
+
   const filteredTemplates = useMemo(() => {
-    return templatesData.filter((template) => {
+    return templates.filter((template) => {
       const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, templates]);
 
-  const categories = useMemo(() => ['All', ...new Set(templatesData.map(t => t.category))], []);
+  const categories = useMemo(() => ['All', ...new Set(initialTemplatesData.map(t => t.category))], []);
 
   const handleOpenModal = (template) => {
     setSelectedTemplate(template);
@@ -203,7 +213,7 @@ function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredTemplates.length > 0 ? (
               filteredTemplates.map((template) => (
-                <TemplateCard key={template.id} template={template} onOpenModal={handleOpenModal} />
+                <TemplateCard key={template.id} template={template} onOpenModal={handleOpenModal} onLike={handleLikeClick} />
               ))
             ) : (
               <div className="col-span-full text-center text-xl text-gray-500 py-10">
