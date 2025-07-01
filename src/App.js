@@ -2,13 +2,27 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Search, Download, Heart, X, ShoppingCart } from 'lucide-react';
 
 const templatesData = [
-    { id: 1, name: 'Classic Floral Invitation', price: '80', paymentLink: 'https://rzp.io/rzp/D4GOvlKM', previewImages: ['https://i.ibb.co/mrMFDSyT/wedding-tamplate.jpg'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations' },
-    { id: 7, name: 'Watercolor Invitation Suite', price: '249', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations' },
-    { id: 2, name: 'Modern Geometric Save-the-Date', price: '99', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date' },
-    { id: 8, name: 'Vintage Save-the-Date Postcard', price: '149', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date' },
-    { id: 9, name: 'Wedding Rings Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1598818382438-654f024e0b82?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', EPS: '#' }, category: 'Clipart' },
-    { id: 10, name: 'Just Married Car Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1541334823339-3837130a1f59?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', SVG: '#' }, category: 'Clipart' },
-    { id: 11, name: 'Flower Bouquets Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart' }
+    // =================================================================
+    // ======================= INVITATIONS CATEGORY ======================
+    // =================================================================
+    { id: 1, name: 'Classic Floral Invitation', price: '199', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1593563919199-35f6f477a3ce?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#', PNG: '#' }, category: 'Invitations' },
+    { id: 2, name: 'Watercolor Invitation Suite', price: '249', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1494809610214-f42a22be22b5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations' },
+    // Yahan aur Invitations templates jod sakte hain
+
+    // =================================================================
+    // ===================== SAVE-THE-DATE CATEGORY ====================
+    // =================================================================
+    { id: 1001, name: 'Modern Geometric Save-the-Date', price: '99', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date' },
+    { id: 1002, name: 'Vintage Save-the-Date Postcard', price: '149', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date' },
+    // Yahan aur Save-the-Date templates jod sakte hain
+
+    // =================================================================
+    // ======================== CLIPART CATEGORY =======================
+    // =================================================================
+    { id: 2001, name: 'Wedding Rings Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1598818382438-654f024e0b82?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', EPS: '#' }, category: 'Clipart' },
+    { id: 2002, name: 'Just Married Car Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1541334823339-3837130a1f59?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', SVG: '#' }, category: 'Clipart' },
+    { id: 2003, name: 'Flower Bouquets Clipart', price: '49', paymentLink: '#', previewImages: ['https://images.unsplash.com/photo-1565982120808-41270b15b5a2?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart' }
+    // Yahan aur Clipart templates jod sakte hain
 ];
 
 const Header = () => (
@@ -90,14 +104,17 @@ function Modal({ isOpen, onClose, template }) {
         <>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
             <div className="space-y-4">
-                <a href={template.paymentLink === '#' ? null : template.paymentLink}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className={`w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300 ${template.paymentLink === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
-                   onClick={(e) => template.paymentLink === '#' && e.preventDefault()}
-                >
-                    <ShoppingCart size={20}/> Customise & Pay ₹{template.price}
-                </a>
+                {/* Sirf 'Invitations' category ke liye payment button dikhayein */}
+                {template.category === 'Invitations' && (
+                    <a href={template.paymentLink === '#' ? null : template.paymentLink}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className={`w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300 ${template.paymentLink === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                       onClick={(e) => template.paymentLink === '#' && e.preventDefault()}
+                    >
+                        <ShoppingCart size={20}/> Customise & Pay ₹{template.price}
+                    </a>
+                )}
                 <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
                     <Download size={20}/> Download Open Files
                 </button>
