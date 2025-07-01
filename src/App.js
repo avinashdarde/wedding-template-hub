@@ -167,7 +167,6 @@ function Modal({ isOpen, onClose, template }) {
     );
 }
 
-// New Page Components
 const AboutUsPage = () => (
     <div className="container mx-auto px-6 py-12 max-w-4xl">
         <h1 className="text-4xl font-bold mb-6 text-violet-700">About Us</h1>
@@ -277,7 +276,7 @@ function App() {
                       </button>
                     ))}
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                     {filteredTemplates.length > 0 ? (
                       filteredTemplates.map((template) => (
                         <TemplateCard key={template.id} template={template} onOpenModal={handleOpenModal} onLike={handleLikeClick} />
