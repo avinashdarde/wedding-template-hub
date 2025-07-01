@@ -25,18 +25,17 @@ const initialTemplatesData = [
     // Yahan aur Clipart templates jod sakte hain
 ];
 
-const Header = () => (
+const Header = ({ onNavigate }) => (
   <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
     <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('Home')}>
         <img src="https://placehold.co/40x40/6d28d9/ffffff?text=W" alt="Logo" className="h-10 w-10 rounded-lg"/>
         <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
       </div>
       <nav className="hidden md:flex items-center space-x-8">
-        <a href="/" className="text-gray-600 hover:text-violet-700 transition-colors">Templates</a>
-        <a href="/" className="text-gray-600 hover:text-violet-700 transition-colors">AI Tools</a>
-        <a href="/" className="text-gray-600 hover:text-violet-700 transition-colors">Pricing</a>
-        <a href="/" className="bg-violet-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-violet-700 transition-all">Sign Up</a>
+        <a href="#home" onClick={(e) => { e.preventDefault(); onNavigate('Home'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Templates</a>
+        <a href="#about" onClick={(e) => { e.preventDefault(); onNavigate('About'); }} className="text-gray-600 hover:text-violet-700 transition-colors">About Us</a>
+        <a href="#contact" onClick={(e) => { e.preventDefault(); onNavigate('Contact'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Contact Us</a>
       </nav>
     </div>
   </header>
@@ -81,8 +80,8 @@ function TemplateCard({ template, onOpenModal, onLike }) {
         </div>
       </div>
       <button
-        onClick={() => onLike(template.id)}
-        className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors flex items-center gap-1 pointer-events-auto opacity-0 group-hover:opacity-100"
+        onClick={(e) => { e.stopPropagation(); onLike(template.id); }}
+        className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors flex items-center gap-1.5 pointer-events-auto opacity-0 group-hover:opacity-100"
       >
         <Heart size={20} />
         <span className="text-sm font-semibold">{template.likes}</span>
@@ -106,7 +105,7 @@ function Modal({ isOpen, onClose, template }) {
         <>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
             <div className="space-y-4">
-                {template.category === 'Invitations' && (
+                {(template.category === 'Invitations' || template.category === 'Save-the-Date') && (
                     <a href={template.paymentLink === '#' ? null : template.paymentLink}
                        target="_blank"
                        rel="noopener noreferrer"
@@ -158,12 +157,66 @@ function Modal({ isOpen, onClose, template }) {
     );
 }
 
+// New Page Components
+const AboutUsPage = () => (
+    <div className="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 className="text-4xl font-bold mb-6 text-violet-700">About Us</h1>
+        <div className="space-y-4 text-lg text-gray-700">
+            <p>Welcome to WeddingTemplateHub! We are passionate about making your special day even more beautiful with our stunning collection of wedding templates.</p>
+            <p>Our mission is to provide high-quality, easily customizable templates for invitations, save-the-dates, and more, helping you create a cohesive and elegant theme for your wedding without the hassle.</p>
+            <p>Founded by a team of designers and wedding enthusiasts, we understand the importance of details. That's why every template is crafted with love, care, and a keen eye for modern trends and timeless elegance.</p>
+        </div>
+    </div>
+);
+
+const ContactUsPage = () => (
+    <div className="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 className="text-4xl font-bold mb-6 text-violet-700">Contact Us</h1>
+        <div className="space-y-4 text-lg text-gray-700">
+            <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p>
+            <p><strong>Email:</strong> <a href="mailto:support@weddingtemplatehub.com" className="text-violet-600 hover:underline">support@weddingtemplatehub.com</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/91XXXXXXXXXX" className="text-violet-600 hover:underline">+91 XXXXXXXXXX</a></p>
+            <p>We typically respond within 24 hours.</p>
+        </div>
+    </div>
+);
+
+const PrivacyPolicyPage = () => (
+    <div className="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 className="text-4xl font-bold mb-6 text-violet-700">Privacy Policy</h1>
+        <div className="space-y-4 text-gray-700">
+            <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
+            <h2 className="text-2xl font-semibold mt-4">Information We Collect</h2>
+            <p>We may collect personal information such as your name and email address when you contact us. For payment transactions, you will be redirected to our payment partner, Razorpay, and we do not store your financial details.</p>
+            <h2 className="text-2xl font-semibold mt-4">How We Use Your Information</h2>
+            <p>We use the information we collect to respond to your inquiries, process your customization orders, and improve our services.</p>
+        </div>
+    </div>
+);
+
+const DisclaimerPage = () => (
+    <div className="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 className="text-4xl font-bold mb-6 text-violet-700">Disclaimer</h1>
+        <div className="space-y-4 text-gray-700">
+            <p>The information provided by WeddingTemplateHub is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p>
+            <p>The "Download Open Files" option provides demo files. These files are for personal use only and may not be redistributed or resold. For customized, high-resolution files, please use the "Customise & Pay" service.</p>
+        </div>
+    </div>
+);
+
+
 function App() {
   const [templates, setTemplates] = useState(initialTemplatesData);
+  const [currentPage, setCurrentPage] = useState('Home');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0); 
+  };
 
   const handleLikeClick = (templateId) => {
     setTemplates(currentTemplates =>
@@ -193,37 +246,57 @@ function App() {
     setSelectedTemplate(null);
   };
 
+  const renderPage = () => {
+    switch(currentPage) {
+        case 'About': return <AboutUsPage />;
+        case 'Contact': return <ContactUsPage />;
+        case 'Privacy': return <PrivacyPolicyPage />;
+        case 'Disclaimer': return <DisclaimerPage />;
+        default: return (
+            <>
+                <HeroSection searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <div className="container mx-auto px-6 py-12">
+                  <div className="flex flex-wrap justify-center gap-3 mb-10">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
+                        className={`px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}`}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {filteredTemplates.length > 0 ? (
+                      filteredTemplates.map((template) => (
+                        <TemplateCard key={template.id} template={template} onOpenModal={handleOpenModal} onLike={handleLikeClick} />
+                      ))
+                    ) : (
+                      <div className="col-span-full text-center text-xl text-gray-500 py-10">
+                        No templates found. Try a different search or category.
+                      </div>
+                    )}
+                  </div>
+                </div>
+            </>
+        );
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
-      <Header />
-      <main>
-        <HeroSection searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <div className="container mx-auto px-6 py-12">
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredTemplates.length > 0 ? (
-              filteredTemplates.map((template) => (
-                <TemplateCard key={template.id} template={template} onOpenModal={handleOpenModal} onLike={handleLikeClick} />
-              ))
-            ) : (
-              <div className="col-span-full text-center text-xl text-gray-500 py-10">
-                No templates found. Try a different search or category.
-              </div>
-            )}
-          </div>
-        </div>
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-800 flex flex-col">
+      <Header onNavigate={handleNavigate} />
+      <main className="flex-grow">
+        {renderPage()}
       </main>
       <footer className="bg-white border-t border-gray-200 p-6 mt-10 text-center text-gray-500">
+        <div className="flex justify-center gap-6 mb-4">
+            <a href="#about" onClick={(e) => { e.preventDefault(); handleNavigate('About'); }} className="text-gray-600 hover:text-violet-700">About Us</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); handleNavigate('Contact'); }} className="text-gray-600 hover:text-violet-700">Contact Us</a>
+            <a href="#privacy" onClick={(e) => { e.preventDefault(); handleNavigate('Privacy'); }} className="text-gray-600 hover:text-violet-700">Privacy Policy</a>
+            <a href="#disclaimer" onClick={(e) => { e.preventDefault(); handleNavigate('Disclaimer'); }} className="text-gray-600 hover:text-violet-700">Disclaimer</a>
+        </div>
         <p>&copy; {new Date().getFullYear()} WeddingTemplateHub. All rights reserved.</p>
       </footer>
       <Modal
