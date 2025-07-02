@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, MessageSquare, CheckCircle } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare } from 'lucide-react';
 
-// Placeholder for your details. Update these.
-const YOUR_UPI_ID = "your-upi-id@okhdfcbank";
-const YOUR_QR_CODE_IMAGE_URL = "https://i.ibb.co/9mC38G4/qr-code-placeholder.png"; // Replace with your actual QR code image URL
+// Placeholder for your details. Update this.
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
 
 const initialTemplatesData = [
@@ -115,12 +113,10 @@ function TemplateCard({ template, onOpenModal, onLike }) {
 
 function Modal({ isOpen, onClose, template }) {
     const [modalView, setModalView] = useState('main');
-    const [paymentStep, setPaymentStep] = useState('pay'); // 'pay' or 'confirm'
 
     useEffect(() => {
         if (isOpen) {
           setModalView('main');
-          setPaymentStep('pay'); // Reset payment step when modal opens
         }
     }, [isOpen]);
 
@@ -128,7 +124,7 @@ function Modal({ isOpen, onClose, template }) {
 
     const renderMainView = () => {
         const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date';
-        const whatsappMessage = `Hi, I have paid for template ID: ${template.id} - ${template.name}. My details are:`;
+        const whatsappMessage = `Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.`;
         const encodedMessage = encodeURIComponent(whatsappMessage);
         const whatsappLink = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
@@ -137,26 +133,18 @@ function Modal({ isOpen, onClose, template }) {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
                  {isCustomizable ? (
                     <div className="space-y-4">
-                        {paymentStep === 'pay' && (
-                            <>
-                                <p className="text-center text-lg font-bold">Pay ₹{template.price} to Customise</p>
-                                <div className="flex justify-center">
-                                    <img src={YOUR_QR_CODE_IMAGE_URL} alt="QR Code" className="w-48 h-48 border rounded-lg object-contain" />
-                                </div>
-                                <div className="text-center">
-                                    <p className="text-gray-600">Scan the QR or use UPI ID:</p>
-                                    <p className="font-mono bg-gray-100 p-2 rounded-md my-2 text-lg tracking-wider">{YOUR_UPI_ID}</p>
-                                </div>
-                                <button onClick={() => setPaymentStep('confirm')} className="w-full flex items-center justify-center gap-3 bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300">
-                                    <CheckCircle size={20}/> I have paid
-                                </button>
-                            </>
-                        )}
-                        {paymentStep === 'confirm' && (
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
-                                <MessageSquare size={20}/> Payment Done? Chat on WhatsApp
-                            </a>
-                        )}
+                        <div className="text-center p-4 bg-violet-50 rounded-lg">
+                            <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.price}</h4>
+                            <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
+                                <li>Click the WhatsApp button below.</li>
+                                <li>Send the pre-filled message with your details.</li>
+                                <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
+                                <li>You will receive your design within 30 minutes!</li>
+                            </ol>
+                        </div>
+                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
+                            <MessageSquare size={20}/> Chat on WhatsApp to Customise
+                        </a>
                         <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
                             <Download size={20}/> Download Open Files
                         </button>
