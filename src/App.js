@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, ShoppingCart, MessageSquare } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare } from 'lucide-react';
 
 // Placeholder for your details. Update these.
-const YOUR_UPI_ID = "avinashdarde.007-3@okaxis";
+const YOUR_UPI_ID = "your-upi-id@okhdfcbank";
 const YOUR_QR_CODE_IMAGE_URL = "https://i.ibb.co/9mC38G4/qr-code-placeholder.png"; // Replace with your actual QR code image URL
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
 
