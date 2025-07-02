@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, MessageSquare } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare, CheckCircle } from 'lucide-react';
 
 // Placeholder for your details. Update these.
 const YOUR_UPI_ID = "your-upi-id@okhdfcbank";
@@ -115,10 +115,12 @@ function TemplateCard({ template, onOpenModal, onLike }) {
 
 function Modal({ isOpen, onClose, template }) {
     const [modalView, setModalView] = useState('main');
+    const [paymentStep, setPaymentStep] = useState('pay'); // 'pay' or 'confirm'
 
     useEffect(() => {
         if (isOpen) {
           setModalView('main');
+          setPaymentStep('pay'); // Reset payment step when modal opens
         }
     }, [isOpen]);
 
@@ -135,17 +137,26 @@ function Modal({ isOpen, onClose, template }) {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
                  {isCustomizable ? (
                     <div className="space-y-4">
-                         <p className="text-center text-lg font-bold">Pay ₹{template.price} to Customise</p>
-                         <div className="flex justify-center">
-                            <img src={YOUR_QR_CODE_IMAGE_URL} alt="QR Code" className="w-48 h-48 border rounded-lg object-contain" />
-                         </div>
-                         <div className="text-center">
-                            <p className="text-gray-600">Scan the QR or use UPI ID:</p>
-                            <p className="font-mono bg-gray-100 p-2 rounded-md my-2 text-lg tracking-wider">{YOUR_UPI_ID}</p>
-                         </div>
-                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
-                            <MessageSquare size={20}/> Payment Done? Chat on WhatsApp
-                        </a>
+                        {paymentStep === 'pay' && (
+                            <>
+                                <p className="text-center text-lg font-bold">Pay ₹{template.price} to Customise</p>
+                                <div className="flex justify-center">
+                                    <img src={YOUR_QR_CODE_IMAGE_URL} alt="QR Code" className="w-48 h-48 border rounded-lg object-contain" />
+                                </div>
+                                <div className="text-center">
+                                    <p className="text-gray-600">Scan the QR or use UPI ID:</p>
+                                    <p className="font-mono bg-gray-100 p-2 rounded-md my-2 text-lg tracking-wider">{YOUR_UPI_ID}</p>
+                                </div>
+                                <button onClick={() => setPaymentStep('confirm')} className="w-full flex items-center justify-center gap-3 bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300">
+                                    <CheckCircle size={20}/> I have paid
+                                </button>
+                            </>
+                        )}
+                        {paymentStep === 'confirm' && (
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
+                                <MessageSquare size={20}/> Payment Done? Chat on WhatsApp
+                            </a>
+                        )}
                         <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
                             <Download size={20}/> Download Open Files
                         </button>
