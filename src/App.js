@@ -49,7 +49,7 @@ const Header = ({ onNavigate }) => {
     <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
-          <img src="https://i.ibb.co/9mC38G4/logo.png" alt="Logo" className="h-10 w-10 rounded-lg object-contain"/>
+          <img src="https://i.ibb.co/qYSqwM5L/Asset-1.png" alt="Logo" className="h-10 object-contain"/>
           <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
         </div>
 
