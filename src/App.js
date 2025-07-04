@@ -5,6 +5,9 @@ import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronD
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
 
 const initialTemplatesData = [
+    // =================================================================
+    // ======================= INVITATIONS CATEGORY ======================
+    // =================================================================
     { id: 1, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/mrMFDSyT/wedding-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', likes: 252 },
     { id: 2, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/4RJs9Yyt/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1ysLv_Up-d-jv8t9soRMZqJ-bh-yps8bX/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1AmUoEiHsYKhnxarGlZ4iRrPG4XdMNJBt/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 3, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/hxhx18Pz/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1TGOccFkayTgzvvZZ5A7TNK_1ZFl3cFtl/view?usp=sharing', JPG: 'https://drive.google.com/file/d/14FGucMO0lOqSAxp9M4U9T2UCgmeOAw_R/view?usp=sharing' }, category: 'Invitations', likes: 481 },
@@ -46,7 +49,7 @@ const Header = ({ onNavigate }) => {
     <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
-          <img src="https://i.ibb.co/qYSqwM5L/Asset-1.png" alt="Logo" className="h-10 w-10 rounded-lg object-contain"/>
+          <img src="https://i.ibb.co/9mC38G4/logo.png" alt="Logo" className="h-10 w-10 rounded-lg object-contain"/>
           <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
         </div>
 
