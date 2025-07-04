@@ -37,6 +37,15 @@ const initialTemplatesData = [
     { id: 2011, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
 ];
 
+const Logo = () => (
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="20" fill="#6d28d9"/>
+        <path d="M24 30L42 80L52 55L62 80L80 30" stroke="white" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M80 55H100" stroke="white" strokeWidth="12" strokeLinecap="round"/>
+        <path d="M90 30V80" stroke="white" strokeWidth="12" strokeLinecap="round"/>
+    </svg>
+);
+
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -49,7 +58,7 @@ const Header = ({ onNavigate }) => {
     <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
-          <img src="https://i.ibb.co/nVBDZpq/WT-logo.png" alt="Logo" className="h-12 object-contain"/>
+          <Logo />
           <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
         </div>
 
@@ -81,6 +90,117 @@ const Header = ({ onNavigate }) => {
   );
 };
 
+function TemplateCard({ template, onOpenModal, onLike }) {
+  return (
+    <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
+      <div onClick={() => onOpenModal(template)} className="aspect-square cursor-pointer">
+        <img
+          src={template.previewImages[0]}
+          alt={${template.name} Preview}
+          className="w-full h-full object-cover"
+          onError={(e) => { e.target.onerror = null; e.target.src = https://placehold.co/400x400/cccccc/333333?text=Image+Not+Found; }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none">
+        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 flex justify-between items-center">
+          <h3 className="text-white text-lg font-bold">{template.name}</h3>
+        </div>
+      </div>
+      <button
+        onClick={(e) => { e.stopPropagation(); onLike(template.id); }}
+        className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors flex items-center gap-1.5 pointer-events-auto opacity-0 group-hover:opacity-100"
+      >
+        <Heart size={20} />
+        <span className="text-sm font-semibold">{template.likes}</span>
+      </button>
+    </div>
+  );
+}
+
+function Modal({ isOpen, onClose, template }) {
+    const [modalView, setModalView] = useState('main');
+
+    useEffect(() => {
+        if (isOpen) {
+          setModalView('main');
+        }
+    }, [isOpen]);
+
+    if (!isOpen || !template) return null;
+
+    const renderMainView = () => {
+        const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date';
+        const whatsappMessage = Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappLink = https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage};
+
+        return (
+            <>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
+                 {isCustomizable ? (
+                    <div className="space-y-4">
+                        <div className="text-center p-4 bg-violet-50 rounded-lg">
+                            <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.price}</h4>
+                            <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
+                                <li>Click the WhatsApp button below.</li>
+                                <li>Send the pre-filled message with your details.</li>
+                                <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
+                                <li>You will receive your design within 30 minutes!</li>
+                            </ol>
+                        </div>
+                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
+                            <MessageSquare size={20}/> Chat on WhatsApp to Customise
+                        </a>
+                        <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
+                            <Download size={20}/> Download Open Files
+                        </button>
+                    </div>
+                ) : (
+                    <div className="space-y-4">
+                         <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
+                            <Download size={20}/> Download Open Files
+                        </button>
+                    </div>
+                )}
+            </>
+        );
+    };
+
+    const renderDownloadView = () => (
+       <div>
+          <button onClick={() => setModalView('main')} className="text-sm text-violet-600 mb-3">&larr; Back</button>
+          <h3 className="text-xl font-bold text-gray-800 mb-4">Download Open Files - {template.name}</h3>
+          <div className="flex flex-col gap-3">
+              {Object.entries(template.downloadFormats).map(([format, link]) => (
+                   link && (
+                      <a key={format} href={link} target="_blank" rel="noopener noreferrer" onClick={onClose} className="block w-full text-center bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
+                          Download .{format}
+                      </a>
+                  )
+              ))}
+          </div>
+      </div>
+    );
+
+    const renderContent = () => {
+      switch (modalView) {
+          case 'download': return renderDownloadView();
+          default: return renderMainView();
+      }
+    };
+
+    return (
+      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+        <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative" onClick={(e) => e.stopPropagation()}>
+          <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors">
+            <X size={24} />
+          </button>
+          {renderContent()}
+        </div>
+      </div>
+    );
+}
+
 const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
     const topTemplates = useMemo(() => 
         [...templates].sort((a, b) => b.likes - a.likes).slice(0, 3), 
@@ -94,7 +214,7 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
                 <div className="container mx-auto px-6 relative z-10">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
                     <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 24 ghante me design pao.
+                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 1 ghante me design pao.
                     </p>
                      <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
                         Explore All Templates
@@ -144,7 +264,7 @@ const TemplatesPage = ({ templates, onOpenModal, onLike }) => {
                 <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}`}
+                className={px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}}
                 >
                 {category}
                 </button>
@@ -170,7 +290,7 @@ const HowItWorksPage = () => {
         { icon: <Search size={40} className="text-violet-500" />, title: "1. Choose Template", description: "Browse our collection and select the perfect design for your occasion." },
         { icon: <Send size={40} className="text-violet-500" />, title: "2. Send Details", description: "Click on 'Chat on WhatsApp' and send us your details like names, date, venue, etc." },
         { icon: <Wallet size={40} className="text-violet-500" />, title: "3. Make Payment", description: "We will provide you with our UPI ID on WhatsApp for you to complete the payment." },
-        { icon: <Gift size={40} className="text-violet-500" />, title: "4. Get Your Design", description: "Within 24 hours, you will receive your beautifully customized design on WhatsApp!" }
+        { icon: <Gift size={40} className="text-violet-500" />, title: "4. Get Your Design", description: "Within 1:00 hours, you will receive your beautifully customized design on WhatsApp!" }
     ];
 
     return (
@@ -193,7 +313,7 @@ const HowItWorksPage = () => {
 
 const FAQPage = () => {
     const faqs = [
-        { q: "How much time does it take to get the design?", a: "You will receive your customized design on WhatsApp within 24 hours after you provide your details and complete the payment." },
+        { q: "How much time does it take to get the design?", a: "You will receive your customized design on WhatsApp within 1:00 hours after you provide your details and complete the payment." },
         { q: "In which format will I receive the files?", a: "You will receive a high-quality JPG or PNG file, perfect for sharing on social media or for printing." },
         { q: "How do I make the payment?", a: "After you send us your details on WhatsApp, we will provide our UPI ID for payment. You can pay using any UPI app like Google Pay, PhonePe, or Paytm." },
         { q: "Can I ask for changes after receiving the design?", a: "Yes, one round of minor revisions (like correcting a spelling mistake) is included in the price. Major design changes will be extra." }
@@ -209,7 +329,7 @@ const FAQPage = () => {
                     <div key={index} className="border rounded-lg overflow-hidden">
                         <button onClick={() => setOpenFAQ(openFAQ === index ? null : index)} className="w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 text-left">
                             <span className="font-semibold text-lg">{faq.q}</span>
-                            <ChevronDown className={`transform transition-transform ${openFAQ === index ? 'rotate-180' : ''}`} />
+                            <ChevronDown className={transform transition-transform ${openFAQ === index ? 'rotate-180' : ''}} />
                         </button>
                         {openFAQ === index && (
                             <div className="p-4 bg-gray-50 text-gray-700">
@@ -224,7 +344,7 @@ const FAQPage = () => {
 };
 
 const AboutUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">About Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>Welcome to WeddingTemplateHub! We are passionate about making your special day even more beautiful with our stunning collection of wedding templates.</p> <p>Our mission is to provide high-quality, easily customizable templates for invitations, save-the-dates, and more, helping you create a cohesive and elegant theme for your wedding without the hassle.</p> <p>Founded by a team of designers and wedding enthusiasts, we understand the importance of details. That's why every template is crafted with love, care, and a keen eye for modern trends and timeless elegance.</p> </div> </div> );
-const ContactUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Contact Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p> <p><strong>Email:</strong> <a href="mailto:graphifly333@gmail.com" className="text-violet-600 hover:underline">graphifly333@gmail.com</a></p> <p><strong>WhatsApp:</strong> <a href={`https://wa.me/${YOUR_WHATSAPP_NUMBER}`} className="text-violet-600 hover:underline">+{YOUR_WHATSAPP_NUMBER}</a></p> <p><strong>Address:</strong> G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</p> <p>We typically respond within 24 hours.</p> </div> </div> );
+const ContactUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Contact Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p> <p><strong>Email:</strong> <a href="mailto:graphifly333@gmail.com" className="text-violet-600 hover:underline">graphifly333@gmail.com</a></p> <p><strong>WhatsApp:</strong> <a href={https://wa.me/${YOUR_WHATSAPP_NUMBER}} className="text-violet-600 hover:underline">+{YOUR_WHATSAPP_NUMBER}</a></p> <p><strong>Address:</strong> G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</p> <p>We typically respond within 24 hours.</p> </div> </div> );
 const PrivacyPolicyPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Privacy Policy</h1> <div className="space-y-4 text-gray-700"> <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p> <h2 className="text-2xl font-semibold mt-4">Information We Collect</h2> <p>We may collect personal information such as your name and email address when you contact us. For payment transactions, you will be redirected to our payment partner, Razorpay, and we do not store your financial details.</p> <h2 className="text-2xl font-semibold mt-4">How We Use Your Information</h2> <p>We use the information we collect to respond to your inquiries, process your customization orders, and improve our services.</p> </div> </div> );
 const DisclaimerPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Disclaimer</h1> <div className="space-y-4 text-gray-700"> <p>The information provided by WeddingTemplateHub is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p> <p>The "Download Open Files" option provides demo files. These files are for personal use only and may not be redistributed or resold. For customized, high-resolution files, please use the "Customise & Pay" service.</p> </div> </div> );
 
