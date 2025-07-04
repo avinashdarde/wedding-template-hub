@@ -37,19 +37,10 @@ const initialTemplatesData = [
     { id: 2011, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
 ];
 
-const Logo = () => (
-    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="120" height="120" rx="20" fill="#6d28d9"/>
-        <path d="M24 30L42 80L52 55L62 80L80 30" stroke="white" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M80 55H100" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-        <path d="M90 30V80" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-    </svg>
-);
-
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLinkClick = (page) => {
+  const handleLinkClick = (page) => 
     onNavigate(page);
     setIsMenuOpen(false);
   };
@@ -58,7 +49,7 @@ const Header = ({ onNavigate }) => {
     <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
-          <Logo />
+          <img src="https://i.ibb.co/qYSqwM5L/Asset-1.png" alt="Logo" className="h-10 w-10 rounded-lg object-contain"/>
           <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
         </div>
 
@@ -214,7 +205,7 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
                 <div className="container mx-auto px-6 relative z-10">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
                     <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 1 ghante me design pao.
+                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 24 ghante me design pao.
                     </p>
                      <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
                         Explore All Templates
@@ -290,7 +281,7 @@ const HowItWorksPage = () => {
         { icon: <Search size={40} className="text-violet-500" />, title: "1. Choose Template", description: "Browse our collection and select the perfect design for your occasion." },
         { icon: <Send size={40} className="text-violet-500" />, title: "2. Send Details", description: "Click on 'Chat on WhatsApp' and send us your details like names, date, venue, etc." },
         { icon: <Wallet size={40} className="text-violet-500" />, title: "3. Make Payment", description: "We will provide you with our UPI ID on WhatsApp for you to complete the payment." },
-        { icon: <Gift size={40} className="text-violet-500" />, title: "4. Get Your Design", description: "Within 1:00 hours, you will receive your beautifully customized design on WhatsApp!" }
+        { icon: <Gift size={40} className="text-violet-500" />, title: "4. Get Your Design", description: "Within 24 hours, you will receive your beautifully customized design on WhatsApp!" }
     ];
 
     return (
@@ -313,7 +304,7 @@ const HowItWorksPage = () => {
 
 const FAQPage = () => {
     const faqs = [
-        { q: "How much time does it take to get the design?", a: "You will receive your customized design on WhatsApp within 1:00 hours after you provide your details and complete the payment." },
+        { q: "How much time does it take to get the design?", a: "You will receive your customized design on WhatsApp within 24 hours after you provide your details and complete the payment." },
         { q: "In which format will I receive the files?", a: "You will receive a high-quality JPG or PNG file, perfect for sharing on social media or for printing." },
         { q: "How do I make the payment?", a: "After you send us your details on WhatsApp, we will provide our UPI ID for payment. You can pay using any UPI app like Google Pay, PhonePe, or Paytm." },
         { q: "Can I ask for changes after receiving the design?", a: "Yes, one round of minor revisions (like correcting a spelling mistake) is included in the price. Major design changes will be extra." }
