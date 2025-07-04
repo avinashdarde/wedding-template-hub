@@ -54,6 +54,21 @@ const Header = ({ onNavigate }) => (
   </header>
 );
 
+const HeroSection = ({ onNavigate }) => (
+    <div className="relative text-center py-16 md:py-24 bg-violet-50 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+        <div className="container mx-auto px-6 relative z-10">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 24 ghante me design pao.
+            </p>
+             <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
+                Explore All Templates
+            </button>
+        </div>
+    </div>
+);
+
 function TemplateCard({ template, onOpenModal, onLike }) {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
@@ -165,7 +180,6 @@ function Modal({ isOpen, onClose, template }) {
     );
 }
 
-// Page Components
 const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
     const topTemplates = useMemo(() => 
         [...templates].sort((a, b) => b.likes - a.likes).slice(0, 3), 
@@ -174,18 +188,7 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
 
     return (
         <>
-            <div className="relative text-center py-16 md:py-24 bg-violet-50 overflow-hidden">
-                <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
-                <div className="container mx-auto px-6 relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
-                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 24 ghante me design pao.
-                    </p>
-                     <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
-                        Explore All Templates
-                    </button>
-                </div>
-            </div>
+            <HeroSection onNavigate={onNavigate} />
             <div className="container mx-auto px-6 py-12">
                 <h2 className="text-3xl font-bold text-center mb-8">Top Liked Templates</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -213,33 +216,40 @@ const TemplatesPage = ({ templates, onOpenModal, onLike }) => {
     const categories = useMemo(() => ['All', ...new Set(initialTemplatesData.map(t => t.category))], []);
 
     return (
-        <>
-            <HeroSection searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <div className="container mx-auto px-6 py-12">
-                <div className="flex flex-wrap justify-center gap-3 mb-10">
-                {categories.map((category) => (
-                    <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}`}
-                    >
-                    {category}
-                    </button>
-                ))}
-                </div>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                {filteredTemplates.length > 0 ? (
-                    filteredTemplates.map((template) => (
-                    <TemplateCard key={template.id} template={template} onOpenModal={onOpenModal} onLike={onLike} />
-                    ))
-                ) : (
-                    <div className="col-span-full text-center text-xl text-gray-500 py-10">
-                    No templates found. Try a different search or category.
-                    </div>
-                )}
-                </div>
+        <div className="container mx-auto px-6 py-12">
+            <div className="relative max-w-2xl mx-auto mb-10">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={24} />
+                <input
+                  type="text"
+                  placeholder="Search for invitations, cards, menus..."
+                  className="w-full pl-12 pr-4 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-400 text-lg shadow-sm"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
             </div>
-        </>
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((category) => (
+                <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}`}
+                >
+                {category}
+                </button>
+            ))}
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {filteredTemplates.length > 0 ? (
+                filteredTemplates.map((template) => (
+                <TemplateCard key={template.id} template={template} onOpenModal={onOpenModal} onLike={onLike} />
+                ))
+            ) : (
+                <div className="col-span-full text-center text-xl text-gray-500 py-10">
+                No templates found. Try a different search or category.
+                </div>
+            )}
+            </div>
+        </div>
     );
 };
 
