@@ -5,9 +5,6 @@ import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronD
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
 
 const initialTemplatesData = [
-    // =================================================================
-    // ======================= INVITATIONS CATEGORY ======================
-    // =================================================================
     { id: 1, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/mrMFDSyT/wedding-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', likes: 252 },
     { id: 2, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/4RJs9Yyt/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1ysLv_Up-d-jv8t9soRMZqJ-bh-yps8bX/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1AmUoEiHsYKhnxarGlZ4iRrPG4XdMNJBt/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 3, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/hxhx18Pz/wedding-invitation-tamplate.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1TGOccFkayTgzvvZZ5A7TNK_1ZFl3cFtl/view?usp=sharing', JPG: 'https://drive.google.com/file/d/14FGucMO0lOqSAxp9M4U9T2UCgmeOAw_R/view?usp=sharing' }, category: 'Invitations', likes: 481 },
@@ -40,7 +37,7 @@ const initialTemplatesData = [
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLinkClick = (page) => 
+  const handleLinkClick = (page) => {
     onNavigate(page);
     setIsMenuOpen(false);
   };
@@ -80,117 +77,6 @@ const Header = ({ onNavigate }) => {
     </header>
   );
 };
-
-function TemplateCard({ template, onOpenModal, onLike }) {
-  return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
-      <div onClick={() => onOpenModal(template)} className="aspect-square cursor-pointer">
-        <img
-          src={template.previewImages[0]}
-          alt={`${template.name} Preview`}
-          className="w-full h-full object-cover"
-          onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/400x400/cccccc/333333?text=Image+Not+Found`; }}
-        />
-      </div>
-      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none">
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 flex justify-between items-center">
-          <h3 className="text-white text-lg font-bold">{template.name}</h3>
-        </div>
-      </div>
-      <button
-        onClick={(e) => { e.stopPropagation(); onLike(template.id); }}
-        className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors flex items-center gap-1.5 pointer-events-auto opacity-0 group-hover:opacity-100"
-      >
-        <Heart size={20} />
-        <span className="text-sm font-semibold">{template.likes}</span>
-      </button>
-    </div>
-  );
-}
-
-function Modal({ isOpen, onClose, template }) {
-    const [modalView, setModalView] = useState('main');
-
-    useEffect(() => {
-        if (isOpen) {
-          setModalView('main');
-        }
-    }, [isOpen]);
-
-    if (!isOpen || !template) return null;
-
-    const renderMainView = () => {
-        const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date';
-        const whatsappMessage = `Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.`;
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappLink = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage}`;
-
-        return (
-            <>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
-                 {isCustomizable ? (
-                    <div className="space-y-4">
-                        <div className="text-center p-4 bg-violet-50 rounded-lg">
-                            <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.price}</h4>
-                            <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
-                                <li>Click the WhatsApp button below.</li>
-                                <li>Send the pre-filled message with your details.</li>
-                                <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
-                                <li>You will receive your design within 30 minutes!</li>
-                            </ol>
-                        </div>
-                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
-                            <MessageSquare size={20}/> Chat on WhatsApp to Customise
-                        </a>
-                        <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
-                            <Download size={20}/> Download Open Files
-                        </button>
-                    </div>
-                ) : (
-                    <div className="space-y-4">
-                         <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
-                            <Download size={20}/> Download Open Files
-                        </button>
-                    </div>
-                )}
-            </>
-        );
-    };
-
-    const renderDownloadView = () => (
-       <div>
-          <button onClick={() => setModalView('main')} className="text-sm text-violet-600 mb-3">&larr; Back</button>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">Download Open Files - {template.name}</h3>
-          <div className="flex flex-col gap-3">
-              {Object.entries(template.downloadFormats).map(([format, link]) => (
-                   link && (
-                      <a key={format} href={link} target="_blank" rel="noopener noreferrer" onClick={onClose} className="block w-full text-center bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
-                          Download .{format}
-                      </a>
-                  )
-              ))}
-          </div>
-      </div>
-    );
-
-    const renderContent = () => {
-      switch (modalView) {
-          case 'download': return renderDownloadView();
-          default: return renderMainView();
-      }
-    };
-
-    return (
-      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative" onClick={(e) => e.stopPropagation()}>
-          <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors">
-            <X size={24} />
-          </button>
-          {renderContent()}
-        </div>
-      </div>
-    );
-}
 
 const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
     const topTemplates = useMemo(() => 
