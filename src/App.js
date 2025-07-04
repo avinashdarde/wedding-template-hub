@@ -37,8 +37,7 @@ const initialTemplatesData = [
     { id: 2011, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
 ];
 
-const Logo = () => (
-    <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
+const Logo = <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
   <img
     src="/WT logo.png"
     alt="Wedding Template Hub Logo"
@@ -46,6 +45,7 @@ const Logo = () => (
   />
   <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
 </div>
+
 
 );
 
