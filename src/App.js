@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown, Menu } from 'lucide-react';
 
 // Placeholder for your details. Update this.
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
@@ -37,22 +37,52 @@ const initialTemplatesData = [
     { id: 2011, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
 ];
 
-const Header = ({ onNavigate }) => (
-  <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
-    <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-      <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('Home')}>
-        <img src="https://placehold.co/40x40/6d28d9/ffffff?text=W" alt="Logo" className="h-10 w-10 rounded-lg"/>
-        <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
+const Header = ({ onNavigate }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLinkClick = (page) => {
+    onNavigate(page);
+    setIsMenuOpen(false);
+  };
+
+  return (
+    <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
+      <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleLinkClick('Home')}>
+          <img src="https://placehold.co/40x40/6d28d9/ffffff?text=W" alt="Logo" className="h-10 w-10 rounded-lg"/>
+          <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <a href="#home" onClick={(e) => { e.preventDefault(); handleLinkClick('Home'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Home</a>
+          <a href="#templates" onClick={(e) => { e.preventDefault(); handleLinkClick('Templates'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Templates</a>
+          <a href="#howitworks" onClick={(e) => { e.preventDefault(); handleLinkClick('HowItWorks'); }} className="text-gray-600 hover:text-violet-700 transition-colors">How It Works</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); handleLinkClick('FAQ'); }} className="text-gray-600 hover:text-violet-700 transition-colors">FAQ</a>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
-      <nav className="hidden md:flex items-center space-x-8">
-        <a href="#home" onClick={(e) => { e.preventDefault(); onNavigate('Home'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Home</a>
-        <a href="#templates" onClick={(e) => { e.preventDefault(); onNavigate('Templates'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Templates</a>
-        <a href="#howitworks" onClick={(e) => { e.preventDefault(); onNavigate('HowItWorks'); }} className="text-gray-600 hover:text-violet-700 transition-colors">How It Works</a>
-        <a href="#faq" onClick={(e) => { e.preventDefault(); onNavigate('FAQ'); }} className="text-gray-600 hover:text-violet-700 transition-colors">FAQ</a>
-      </nav>
-    </div>
-  </header>
-);
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-center p-4">
+          <a href="#home" onClick={(e) => { e.preventDefault(); handleLinkClick('Home'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">Home</a>
+          <a href="#templates" onClick={(e) => { e.preventDefault(); handleLinkClick('Templates'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">Templates</a>
+          <a href="#howitworks" onClick={(e) => { e.preventDefault(); handleLinkClick('HowItWorks'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">How It Works</a>
+          <a href="#faq" onClick={(e) => { e.preventDefault(); handleLinkClick('FAQ'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">FAQ</a>
+          <a href="#about" onClick={(e) => { e.preventDefault(); handleLinkClick('About'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">About Us</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); handleLinkClick('Contact'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">Contact Us</a>
+        </div>
+      )}
+    </header>
+  );
+};
 
 function TemplateCard({ template, onOpenModal, onLike }) {
   return (
