@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, MessageSquare, CheckCircle, Gift, Send, Wallet, ChevronDown } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown } from 'lucide-react';
 
 // Placeholder for your details. Update this.
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
@@ -54,132 +54,6 @@ const Header = ({ onNavigate }) => (
   </header>
 );
 
-const HeroSection = ({ onNavigate }) => (
-    <div className="relative text-center py-16 md:py-24 bg-violet-50 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
-        <div className="container mx-auto px-6 relative z-10">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 24 ghante me design pao.
-            </p>
-             <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
-                Explore All Templates
-            </button>
-        </div>
-    </div>
-);
-
-function TemplateCard({ template, onOpenModal, onLike }) {
-  return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
-      <div onClick={() => onOpenModal(template)} className="aspect-square cursor-pointer">
-        <img
-          src={template.previewImages[0]}
-          alt={`${template.name} Preview`}
-          className="w-full h-full object-cover"
-          onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/400x400/cccccc/333333?text=Image+Not+Found`; }}
-        />
-      </div>
-      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none">
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 flex justify-between items-center">
-          <h3 className="text-white text-lg font-bold">{template.name}</h3>
-        </div>
-      </div>
-      <button
-        onClick={(e) => { e.stopPropagation(); onLike(template.id); }}
-        className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors flex items-center gap-1.5 pointer-events-auto opacity-0 group-hover:opacity-100"
-      >
-        <Heart size={20} />
-        <span className="text-sm font-semibold">{template.likes}</span>
-      </button>
-    </div>
-  );
-}
-
-function Modal({ isOpen, onClose, template }) {
-    const [modalView, setModalView] = useState('main');
-
-    useEffect(() => {
-        if (isOpen) {
-          setModalView('main');
-        }
-    }, [isOpen]);
-
-    if (!isOpen || !template) return null;
-
-    const renderMainView = () => {
-        const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date';
-        const whatsappMessage = `Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.`;
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappLink = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage}`;
-
-        return (
-            <>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
-                 {isCustomizable ? (
-                    <div className="space-y-4">
-                        <div className="text-center p-4 bg-violet-50 rounded-lg">
-                            <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.price}</h4>
-                            <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
-                                <li>Click the WhatsApp button below.</li>
-                                <li>Send the pre-filled message with your details.</li>
-                                <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
-                                <li>You will receive your design within 30 minutes!</li>
-                            </ol>
-                        </div>
-                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
-                            <MessageSquare size={20}/> Chat on WhatsApp to Customise
-                        </a>
-                        <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
-                            <Download size={20}/> Download Open Files
-                        </button>
-                    </div>
-                ) : (
-                    <div className="space-y-4">
-                         <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
-                            <Download size={20}/> Download Open Files
-                        </button>
-                    </div>
-                )}
-            </>
-        );
-    };
-
-    const renderDownloadView = () => (
-       <div>
-          <button onClick={() => setModalView('main')} className="text-sm text-violet-600 mb-3">&larr; Back</button>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">Download Open Files - {template.name}</h3>
-          <div className="flex flex-col gap-3">
-              {Object.entries(template.downloadFormats).map(([format, link]) => (
-                   link && (
-                      <a key={format} href={link} target="_blank" rel="noopener noreferrer" onClick={onClose} className="block w-full text-center bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
-                          Download .{format}
-                      </a>
-                  )
-              ))}
-          </div>
-      </div>
-    );
-
-    const renderContent = () => {
-      switch (modalView) {
-          case 'download': return renderDownloadView();
-          default: return renderMainView();
-      }
-    };
-
-    return (
-      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative" onClick={(e) => e.stopPropagation()}>
-          <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors">
-            <X size={24} />
-          </button>
-          {renderContent()}
-        </div>
-      </div>
-    );
-}
-
 const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
     const topTemplates = useMemo(() => 
         [...templates].sort((a, b) => b.likes - a.likes).slice(0, 3), 
@@ -188,7 +62,18 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
 
     return (
         <>
-            <HeroSection onNavigate={onNavigate} />
+            <div className="relative text-center py-16 md:py-24 bg-violet-50 overflow-hidden">
+                <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+                <div className="container mx-auto px-6 relative z-10">
+                    <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 24 ghante me design pao.
+                    </p>
+                     <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
+                        Explore All Templates
+                    </button>
+                </div>
+            </div>
             <div className="container mx-auto px-6 py-12">
                 <h2 className="text-3xl font-bold text-center mb-8">Top Liked Templates</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
