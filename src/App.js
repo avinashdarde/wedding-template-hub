@@ -38,12 +38,15 @@ const initialTemplatesData = [
 ];
 
 const Logo = () => (
-    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="120" height="120" rx="20" fill="#6d28d9"/>
-        <path d="M24 30L42 80L52 55L62 80L80 30" stroke="white" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M80 55H100" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-        <path d="M90 30V80" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-    </svg>
+    <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
+  <img
+    src="/WT logo.png"
+    alt="Wedding Template Hub Logo"
+    className="h-10 w-10 object-contain"
+  />
+  <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
+</div>
+
 );
 
 const Header = ({ onNavigate }) => {
