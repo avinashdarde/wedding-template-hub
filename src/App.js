@@ -96,9 +96,9 @@ function TemplateCard({ template, onOpenModal, onLike }) {
       <div onClick={() => onOpenModal(template)} className="aspect-square cursor-pointer">
         <img
           src={template.previewImages[0]}
-          alt={${template.name} Preview}
+          alt={`${template.name} Preview`}
           className="w-full h-full object-cover"
-          onError={(e) => { e.target.onerror = null; e.target.src = https://placehold.co/400x400/cccccc/333333?text=Image+Not+Found; }}
+          onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/400x400/cccccc/333333?text=Image+Not+Found`; }}
         />
       </div>
       <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none">
@@ -130,9 +130,9 @@ function Modal({ isOpen, onClose, template }) {
 
     const renderMainView = () => {
         const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date';
-        const whatsappMessage = Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.;
+        const whatsappMessage = `Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.`;
         const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappLink = https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage};
+        const whatsappLink = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
         return (
             <>
@@ -264,7 +264,7 @@ const TemplatesPage = ({ templates, onOpenModal, onLike }) => {
                 <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}}
+                className={`px-5 py-2 rounded-full font-semibold text-base transition-all duration-300 shadow-sm ${selectedCategory === category ? 'bg-violet-600 text-white ring-2 ring-offset-2 ring-violet-600' : 'bg-white text-gray-700 hover:bg-gray-100'}`}
                 >
                 {category}
                 </button>
@@ -329,7 +329,7 @@ const FAQPage = () => {
                     <div key={index} className="border rounded-lg overflow-hidden">
                         <button onClick={() => setOpenFAQ(openFAQ === index ? null : index)} className="w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 text-left">
                             <span className="font-semibold text-lg">{faq.q}</span>
-                            <ChevronDown className={transform transition-transform ${openFAQ === index ? 'rotate-180' : ''}} />
+                            <ChevronDown className={`transform transition-transform ${openFAQ === index ? 'rotate-180' : ''}`} />
                         </button>
                         {openFAQ === index && (
                             <div className="p-4 bg-gray-50 text-gray-700">
@@ -344,7 +344,7 @@ const FAQPage = () => {
 };
 
 const AboutUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">About Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>Welcome to WeddingTemplateHub! We are passionate about making your special day even more beautiful with our stunning collection of wedding templates.</p> <p>Our mission is to provide high-quality, easily customizable templates for invitations, save-the-dates, and more, helping you create a cohesive and elegant theme for your wedding without the hassle.</p> <p>Founded by a team of designers and wedding enthusiasts, we understand the importance of details. That's why every template is crafted with love, care, and a keen eye for modern trends and timeless elegance.</p> </div> </div> );
-const ContactUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Contact Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p> <p><strong>Email:</strong> <a href="mailto:graphifly333@gmail.com" className="text-violet-600 hover:underline">graphifly333@gmail.com</a></p> <p><strong>WhatsApp:</strong> <a href={https://wa.me/${YOUR_WHATSAPP_NUMBER}} className="text-violet-600 hover:underline">+{YOUR_WHATSAPP_NUMBER}</a></p> <p><strong>Address:</strong> G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</p> <p>We typically respond within 24 hours.</p> </div> </div> );
+const ContactUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Contact Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p> <p><strong>Email:</strong> <a href="mailto:graphifly333@gmail.com" className="text-violet-600 hover:underline">graphifly333@gmail.com</a></p> <p><strong>WhatsApp:</strong> <a href={`https://wa.me/${YOUR_WHATSAPP_NUMBER}`} className="text-violet-600 hover:underline">+{YOUR_WHATSAPP_NUMBER}</a></p> <p><strong>Address:</strong> G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</p> <p>We typically respond within 24 hours.</p> </div> </div> );
 const PrivacyPolicyPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Privacy Policy</h1> <div className="space-y-4 text-gray-700"> <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p> <h2 className="text-2xl font-semibold mt-4">Information We Collect</h2> <p>We may collect personal information such as your name and email address when you contact us. For payment transactions, you will be redirected to our payment partner, Razorpay, and we do not store your financial details.</p> <h2 className="text-2xl font-semibold mt-4">How We Use Your Information</h2> <p>We use the information we collect to respond to your inquiries, process your customization orders, and improve our services.</p> </div> </div> );
 const DisclaimerPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Disclaimer</h1> <div className="space-y-4 text-gray-700"> <p>The information provided by WeddingTemplateHub is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p> <p>The "Download Open Files" option provides demo files. These files are for personal use only and may not be redistributed or resold. For customized, high-resolution files, please use the "Customise & Pay" service.</p> </div> </div> );
 
