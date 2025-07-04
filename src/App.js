@@ -37,6 +37,15 @@ const initialTemplatesData = [
     { id: 2011, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
 ];
 
+const Logo = () => (
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="20" fill="#6d28d9"/>
+        <path d="M24 30L42 80L52 55L62 80L80 30" stroke="white" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M80 55H100" stroke="white" strokeWidth="12" strokeLinecap="round"/>
+        <path d="M90 30V80" stroke="white" strokeWidth="12" strokeLinecap="round"/>
+    </svg>
+);
+
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -48,12 +57,11 @@ const Header = ({ onNavigate }) => {
   return (
     <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleLinkClick('Home')}>
-          <img src="https://placehold.co/40x40/6d28d9/ffffff?text=W" alt="Logo" className="h-10 w-10 rounded-lg"/>
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
+          <Logo />
           <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#home" onClick={(e) => { e.preventDefault(); handleLinkClick('Home'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Home</a>
           <a href="#templates" onClick={(e) => { e.preventDefault(); handleLinkClick('Templates'); }} className="text-gray-600 hover:text-violet-700 transition-colors">Templates</a>
@@ -61,7 +69,6 @@ const Header = ({ onNavigate }) => {
           <a href="#faq" onClick={(e) => { e.preventDefault(); handleLinkClick('FAQ'); }} className="text-gray-600 hover:text-violet-700 transition-colors">FAQ</a>
         </nav>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -69,7 +76,6 @@ const Header = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-center p-4">
           <a href="#home" onClick={(e) => { e.preventDefault(); handleLinkClick('Home'); }} className="py-3 text-lg w-full text-center hover:bg-violet-50 rounded-md">Home</a>
