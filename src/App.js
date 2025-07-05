@@ -224,6 +224,31 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
         Explore All Templates
     </button>
 </div>
+                    const HowItWorksPage = () => {
+    const steps = [
+        { icon: <Search size={40} className="text-violet-500" />, title: "1. Choose Template", description: "Browse our collection and select the perfect design for your occasion." },
+        { icon: <Send size={40} className="text-violet-500" />, title: "2. Send Details", description: "Click on 'Chat on WhatsApp' and send us your details like names, date, venue, etc." },
+        { icon: <Wallet size={40} className="text-violet-500" />, title: "3. Make Payment", description: "We will provide you with our UPI ID on WhatsApp for you to complete the payment." },
+        { icon: <Gift size={40} className="text-violet-500" />, title: "4. Get Your Design", description: "Within 1:00 hours, you will receive your beautifully customized design on WhatsApp!" }
+    ];
+
+    return (
+        <div className="container mx-auto px-6 py-12 max-w-4xl">
+            <h1 className="text-4xl font-bold mb-12 text-center text-violet-700">How It Works</h1>
+            <div className="grid md:grid-cols-4 gap-8">
+                {steps.map((step, index) => (
+                    <div key={index} className="text-center p-6 bg-white rounded-xl shadow-md">
+                        <div className="flex justify-center items-center h-20 w-20 mx-auto bg-violet-100 rounded-full mb-4">
+                            {step.icon}
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                        <p className="text-gray-600">{step.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
             </div>
         </>
     );
