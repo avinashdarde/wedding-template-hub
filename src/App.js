@@ -224,6 +224,36 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
         Explore All Templates
     </button>
 </div>
+                    {/* How It Works Section for Home Page */}
+<div className="mt-24">
+    <h2 className="text-3xl font-bold text-center mb-10">How It Works in 4 Simple Steps</h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
+        <div className="text-center">
+            <div className="flex justify-center items-center h-16 w-16 mx-auto bg-violet-100 text-violet-500 rounded-full mb-3">
+                <Search size={32} />
+            </div>
+            <h3 className="font-semibold">1. Choose Template</h3>
+        </div>
+        <div className="text-center">
+            <div className="flex justify-center items-center h-16 w-16 mx-auto bg-violet-100 text-violet-500 rounded-full mb-3">
+                <Send size={32} />
+            </div>
+            <h3 className="font-semibold">2. Send Details</h3>
+        </div>
+        <div className="text-center">
+            <div className="flex justify-center items-center h-16 w-16 mx-auto bg-violet-100 text-violet-500 rounded-full mb-3">
+                <Wallet size={32} />
+            </div>
+            <h3 className="font-semibold">3. Make Payment</h3>
+        </div>
+        <div className="text-center">
+            <div className="flex justify-center items-center h-16 w-16 mx-auto bg-violet-100 text-violet-500 rounded-full mb-3">
+                <Gift size={32} />
+            </div>
+            <h3 className="font-semibold">4. Get Your Design</h3>
+        </div>
+    </div>
+</div>
             </div>
         </>
     );
