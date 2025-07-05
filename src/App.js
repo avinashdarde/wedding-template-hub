@@ -224,7 +224,7 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
         Explore All Templates
     </button>
 </div>
-                    const HowItWorksPage = () => {
+const HowItWorksPage = () => {
     const steps = [
         { icon: <Search size={40} className="text-violet-500" />, title: "1. Choose Template", description: "Browse our collection and select the perfect design for your occasion." },
         { icon: <Send size={40} className="text-violet-500" />, title: "2. Send Details", description: "Click on 'Chat on WhatsApp' and send us your details like names, date, venue, etc." },
@@ -247,10 +247,6 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
                 ))}
             </div>
         </div>
-    );
-};
-            </div>
-        </>
     );
 };
 
