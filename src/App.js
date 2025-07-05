@@ -84,7 +84,7 @@ const Header = ({ onNavigate }) => {
 function TemplateCard({ template, onOpenModal, onLike }) {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
-      <div onClick={() => onOpenModal(template)} className="aspect-square cursor-pointer">
+      <div onClick={() => onOpenModal(template)} className={`${(template.category === 'Invitations' || template.category === 'Save-the-Date') ? 'aspect-[4/6]' : 'aspect-square'} cursor-pointer`}>
         <img
           src={template.previewImages[0]}
           alt={`${template.name} Preview`}
