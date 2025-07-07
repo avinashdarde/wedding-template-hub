@@ -8,7 +8,7 @@ const initialTemplatesData = [
     // =================================================================
     // ======================= INVITATIONS CATEGORY ======================
     // =================================================================
-    { id: 1, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/rGqTJkH6/ID1.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', likes: 252 },
+    { id: 1, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/rGqTJkH6/ID1.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', likes: 252, tags: ['classic', 'floral', 'elegant invitation', 'wedding card'] },
     { id: 2, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/Q35Ts3CR/ID2.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1ysLv_Up-d-jv8t9soRMZqJ-bh-yps8bX/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1AmUoEiHsYKhnxarGlZ4iRrPG4XdMNJBt/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 3, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/KjC8nd86/ID3.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1TGOccFkayTgzvvZZ5A7TNK_1ZFl3cFtl/view?usp=sharing', JPG: 'https://drive.google.com/file/d/14FGucMO0lOqSAxp9M4U9T2UCgmeOAw_R/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 4, name: 'Classic Invitation Template', price: '80', previewImages: ['https://i.ibb.co/sJpR9GwN/ID4.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/17xxGUfyT8nzw6nEirOTHYXuYYR_gOkPU/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1QYuxf6KzrDok7OplAckJQrBB1DauV9Cf/view?usp=sharing' }, category: 'Invitations', likes: 481 },
@@ -270,12 +270,8 @@ const TemplatesPage = ({ templates, onOpenModal, onLike }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    const filteredTemplates = useMemo(() => {
-        return templates.filter((template) => {
-          const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase());
-          const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
-          return matchesSearch && matchesCategory;
-        });
+    const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                      (template.tags && template.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())));
     }, [searchTerm, selectedCategory, templates]);
 
     const categories = useMemo(() => ['All', ...new Set(initialTemplatesData.map(t => t.category))], []);
