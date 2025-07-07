@@ -276,7 +276,7 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
                 <div className="container mx-auto px-6 relative z-10">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Your Vision, Our Templates</h1>
                     <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        ₹80 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 1 ghante me design pao.
+                        ₹99 me apni shadi ka unique invitation design banao – bas template select karo, details bhejo, aur 1 ghante me design pao.
                     </p>
                      <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
                         Explore All Templates
