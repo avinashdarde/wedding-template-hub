@@ -272,7 +272,6 @@ const TemplatesPage = ({ templates, onOpenModal, onLike }) => {
 
     const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                       (template.tags && template.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())));
-    }, [searchTerm, selectedCategory, templates]);
 
     const categories = useMemo(() => ['All', ...new Set(initialTemplatesData.map(t => t.category))], []);
 
