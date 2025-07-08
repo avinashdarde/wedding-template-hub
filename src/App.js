@@ -89,7 +89,17 @@ const initialTemplatesData = [
     { id: 78, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/Mx6MnBDy/ID78.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 79, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/gbTqCK9q/ID79.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 80, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/0RbWF1Lf/ID80.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
-    { id: 81, name: 'Classic Invitation Template', price: '99', previewImages: ['#'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 81, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/gLR2bCgT/ID81.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 82, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/LDz2bYNQ/ID82.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 83, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/7d7L3B8Q/ID83.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 84, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/60CHbDNp/ID84.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 85, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/FbcQjW8G/ID85.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 86, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/XZGf9qH1/ID86.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 87, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/x8wjhrfP/ID87.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 88, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/rRbYmg8k/ID88.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 89, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/zThgYLjK/ID89.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 90, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/RGR1zPP4/ID90.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 91, name: 'Classic Invitation Template', price: '99', previewImages: ['#'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     
 
     { id: 1001, name: 'Modern Geometric Save-the-Date', price: '99', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', likes: 198 },
