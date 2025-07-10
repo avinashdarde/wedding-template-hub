@@ -109,11 +109,18 @@ const initialTemplatesData = [
     { id: 98, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/VWCL460N/ID98.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 99, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/fVFMC4GT/ID99.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 100, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/pq8ywQ7/ID100.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
-    
+
+    // =================================================================
+    // ======================= SAVE THE DATE ======================
+    // =================================================================
 
     { id: 1001, name: 'Modern Geometric Save-the-Date', price: '99', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', likes: 198 },
     { id: 1002, name: 'Vintage Save-the-Date Postcard', price: '149', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
 
+    // =================================================================
+    // ======================= CLIPARTS ======================
+    // =================================================================
+    
     { id: 2001, name: 'Wedding couple Clipart', price: '49', previewImages: ['https://i.ibb.co/G3B3gbN7/wedding-couple-Illutraction-1.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1F3KaJ3DM_ujUI3GvV9D1pP60eu-K05RX/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1zQ6WgAF1TiJJSj_hUeRXAsKLO8K9LtPy/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1BbAezaAna-BnWhKbS4rfm2EYMY54jPkl/view?usp=sharing' }, category: 'Clipart', likes: 88 },
     { id: 2002, name: 'Just Married Car Clipart', price: '49', previewImages: ['https://i.ibb.co/SXCcGWH8/wedding-couple-Illutraction-2.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/17Ye3NKyku0EEbG_0Ytkb9WQW60FfY0m0/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1Aw3-u9zAW2gp-LQATC4PT9n7m151ucDU/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1QMKznT7OPIOmX6y2FLE8gyu29UrGUcCr/view?usp=sharing' }, category: 'Clipart', likes: 123 },
     { id: 2003, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/fdqmYLz4/wedding-couple-Illutraction-3.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/19jH3-VlERrLez3p2fDjI47icGUl_r5AH/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1o9Vkcf0eRia2ZBKjj2W9lvsB5jgARdra/view?usp=sharing', JPG: 'https://drive.google.com/file/d/13DOC_xRcwwm9i4dipAKPqFggfOPVtCf4/view?usp=sharing' }, category: 'Clipart', likes: 210 },
