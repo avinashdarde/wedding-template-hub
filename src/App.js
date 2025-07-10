@@ -99,7 +99,16 @@ const initialTemplatesData = [
     { id: 88, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/rRbYmg8k/ID88.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 89, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/zThgYLjK/ID89.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 90, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/RGR1zPP4/ID90.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
-    { id: 91, name: 'Classic Invitation Template', price: '99', previewImages: ['#'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 91, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/q3Vb5njN/ID91.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 92, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/prnt5VZW/ID92.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 93, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/XrrVZzSV/ID93.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 94, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/6JJxPcvW/ID94.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 95, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/5hk82j6k/ID95.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 96, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/8g2zL4hb/ID96.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 97, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/vxyySY1X/ID97.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 98, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/VWCL460N/ID98.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 99, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/fVFMC4GT/ID99.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 100, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/pq8ywQ7/ID100.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     
 
     { id: 1001, name: 'Modern Geometric Save-the-Date', price: '99', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', likes: 198 },
@@ -200,11 +209,11 @@ const initialTemplatesData = [
     { id: 2093, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/gbVfkSHn/wedding-couple-Illutraction-93.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
     { id: 2094, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/N67DmzyH/wedding-couple-Illutraction-94.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
     { id: 2095, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/ZpXb39hw/wedding-couple-Illutraction-95.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2096, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2097, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2098, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2099, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2100, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['#'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
+    { id: 2096, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/9HTLbMFL/wedding-couple-Illutraction-96.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
+    { id: 2097, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/Z6N1fzhy/wedding-couple-Illutraction-97.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
+    { id: 2098, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/7NdFkgzz/wedding-couple-Illutraction-98.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
+    { id: 2099, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/zWmgKFfH/wedding-couple-Illutraction-99.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
+    { id: 2100, name: 'Flower Bouquets Clipart', price: '49', previewImages: ['https://i.ibb.co/8gxbYg3n/wedding-couple-Illutraction-100.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
 ];
 
 const Header = ({ onNavigate }) => {
