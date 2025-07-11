@@ -114,8 +114,26 @@ const initialTemplatesData = [
     // ======================= SAVE THE DATE ======================
     // =================================================================
 
-    { id: 1001, name: 'Modern Geometric Save-the-Date', price: '99', previewImages: ['https://images.unsplash.com/photo-1560962827-2a68f4e20557?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', likes: 198 },
-    { id: 1002, name: 'Vintage Save-the-Date Postcard', price: '149', previewImages: ['https://images.unsplash.com/photo-1530053335839-a35af3d7a8d5?q=80&w=1887&auto=format&fit=crop'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
+    { id: 1001, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/7hk4587/ID1001.jpg'], downloadFormats: { EPS: '#', PNG: '#' }, category: 'Save-the-Date', likes: 198 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/1fjQCLvb/ID1002.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 234 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/Z6ZnLrh3/ID1003.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 213 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/LzjFqf58/ID1004.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 134 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/RkSS8whh/ID1005.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 166 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/20DzKwcc/ID1006.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 157 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/Z6zbB1fw/ID1007.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 196 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/Cstgj4r9/ID1008.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 466 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/N6T5Gx2T/ID1009.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 145 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/JF3ffjtS/ID1010.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 158 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/spdnL3zC/ID1011.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 139 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/GQQRwWXp/ID1012.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 284 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/60MjXS4L/ID1013.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 164 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/8g3WLPkq/ID1014.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 274 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/bMvmG60W/ID1015.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 178 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/XkKKwthr/ID1016.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 193 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/v4rCdzmt/ID1017.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 127 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/jvFsh72F/ID1018.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 165 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/S7ydnz2M/ID1019.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 125 },
+    { id: 1002, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/hJ26gwsw/ID1020.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
 
     // =================================================================
     // ======================= CLIPARTS ======================
