@@ -109,6 +109,16 @@ const initialTemplatesData = [
     { id: 98, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/VWCL460N/ID98.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 99, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/fVFMC4GT/ID99.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
     { id: 100, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/pq8ywQ7/ID100.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 481 },
+    { id: 101, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/mF5Gbd5R/ID101.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 156, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 102, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/7dxPWLMV/ID102.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 99, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 103, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/5g3snTT0/ID103.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 27, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },,
+    { id: 104, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/r27QDn4M/ID104.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 17, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 105, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/rKRFKFvd/ID105.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 82, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 106, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/hRSsmBxK/ID106.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 4, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 107, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/NgBgg4Hb/ID107.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 56, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 108, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/BvQGz7y/ID108.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 471, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 109, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/YFQffCNP/ID109.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 94, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
+    { id: 110, name: 'Hindi Wedding Invitation Template', price: '99', previewImages: ['https://i.ibb.co/5gw9167n/ID110.jpg'], downloadFormats: { PSD: '#', JPG: '#' }, category: 'Invitations', likes: 38, tags: ['hindi wedding invitation, hindi wedding invitation template, hindi'] },
 
     // =================================================================
     // ======================= SAVE THE DATE ======================
@@ -134,6 +144,11 @@ const initialTemplatesData = [
     { id: 1018, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/jvFsh72F/ID1018.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 165 },
     { id: 1019, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/S7ydnz2M/ID1019.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 125 },
     { id: 1020, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/hJ26gwsw/ID1020.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
+    { id: 1021, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/pjB1J09k/ID1021.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
+    { id: 1022, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/pBmQdNsb/ID1022.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
+    { id: 1023, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/99FM94kx/ID1023.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
+    { id: 1024, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/n881Kgjg/ID1024.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
+    { id: 1025, name: 'Wedding Save-the-Date Card Tamplate', price: '99', previewImages: ['https://i.ibb.co/ZRRWJyYW/ID1025.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Save-the-Date', likes: 345 },
 
     // =================================================================
     // ======================= CLIPARTS ======================
