@@ -269,7 +269,7 @@ const Header = ({ onNavigate }) => {
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleLinkClick('Home')}>
           <img src="https://i.ibb.co/qYSqwM5L/Asset-1.png" alt="Logo" className="h-12 object-contain"/>
-          <span className="text-xl font-bold text-violet-700">WeddingTemplateHub</span>
+          <span className="text-xl font-bold text-violet-700">Graphifly</span>
         </div>
 
         <nav className="hidden md:flex items-center space-x-8">
@@ -589,10 +589,10 @@ const FAQPage = () => {
     );
 };
 
-const AboutUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">About Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>Welcome to WeddingTemplateHub! We are passionate about making your special day even more beautiful with our stunning collection of wedding templates.</p> <p>Our mission is to provide high-quality, easily customizable templates for invitations, save-the-dates, and more, helping you create a cohesive and elegant theme for your wedding without the hassle.</p> <p>Founded by a team of designers and wedding enthusiasts, we understand the importance of details. That's why every template is crafted with love, care, and a keen eye for modern trends and timeless elegance.</p> </div> </div> );
+const AboutUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">About Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>Welcome to Graphifly! We are passionate about making your special day even more beautiful with our stunning collection of wedding templates.</p> <p>Our mission is to provide high-quality, easily customizable templates for invitations, save-the-dates, and more, helping you create a cohesive and elegant theme for your wedding without the hassle.</p> <p>Founded by a team of designers and wedding enthusiasts, we understand the importance of details. That's why every template is crafted with love, care, and a keen eye for modern trends and timeless elegance.</p> </div> </div> );
 const ContactUsPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Contact Us</h1> <div className="space-y-4 text-lg text-gray-700"> <p>We'd love to hear from you! Whether you have a question about our templates, a suggestion, or need help with a custom order, feel free to reach out.</p> <p><strong>Email:</strong> <a href="mailto:graphifly333@gmail.com" className="text-violet-600 hover:underline">graphifly333@gmail.com</a></p> <p><strong>WhatsApp:</strong> <a href={`https://wa.me/${YOUR_WHATSAPP_NUMBER}`} className="text-violet-600 hover:underline">+{YOUR_WHATSAPP_NUMBER}</a></p> <p><strong>Address:</strong> G-13 First Floor, Dipashri Marigold, Lanja, Ratnagiri, Maharashtra-416701</p> <p>We typically respond within 24 hours.</p> </div> </div> );
 const PrivacyPolicyPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Privacy Policy</h1> <div className="space-y-4 text-gray-700"> <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p> <h2 className="text-2xl font-semibold mt-4">Information We Collect</h2> <p>We may collect personal information such as your name and email address when you contact us. For payment transactions, you will be redirected to our payment partner, Razorpay, and we do not store your financial details.</p> <h2 className="text-2xl font-semibold mt-4">How We Use Your Information</h2> <p>We use the information we collect to respond to your inquiries, process your customization orders, and improve our services.</p> </div> </div> );
-const DisclaimerPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Disclaimer</h1> <div className="space-y-4 text-gray-700"> <p>The information provided by WeddingTemplateHub is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p> <p>The "Download Open Files" option provides demo files. These files are for personal use only and may not be redistributed or resold. For customized, high-resolution files, please use the "Customise & Pay" service.</p> </div> </div> );
+const DisclaimerPage = () => ( <div className="container mx-auto px-6 py-12 max-w-4xl"> <h1 className="text-4xl font-bold mb-6 text-violet-700">Disclaimer</h1> <div className="space-y-4 text-gray-700"> <p>The information provided by Graphifly is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p> <p>The "Download Open Files" option provides demo files. These files are for personal use only and may not be redistributed or resold. For customized, high-resolution files, please use the "Customise & Pay" service.</p> </div> </div> );
 
 
 function App() {
@@ -652,7 +652,7 @@ function App() {
             <a href="#privacy" onClick={(e) => { e.preventDefault(); handleNavigate('Privacy'); }} className="text-gray-600 hover:text-violet-700">Privacy Policy</a>
             <a href="#disclaimer" onClick={(e) => { e.preventDefault(); handleNavigate('Disclaimer'); }} className="text-gray-600 hover:text-violet-700">Disclaimer</a>
         </div>
-        <p>&copy; {new Date().getFullYear()} WeddingTemplateHub. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Graphifly. All rights reserved.</p>
       </footer>
       <Modal
         isOpen={isModalOpen}
