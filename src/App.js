@@ -415,6 +415,14 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
         [...templates].sort((a, b) => b.likes - a.likes).slice(0, 6), 
         [templates]
     );
+    
+    const trendingCliparts = useMemo(() =>
+  templates
+    .filter(t => t.category === 'Clipart') // Pehle sirf 'Clipart' category waale designs chuno
+    .sort((a, b) => b.likes - a.likes)     // Fir unhe likes ke hisaab se sort karo
+    .slice(0, 6),                          // Aur shuru ke 6 le lo
+  [templates]
+);
 
     return (
         <>
@@ -442,6 +450,28 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
         Explore All Templates
     </button>
 </div>
+{/* ===== Trending Cliparts Section START ===== */}
+<div className="mt-20"> {/* Yeh upar waale section se thoda gap dega */}
+
+  {/* Section ki Heading */}
+  <h2 className="text-3xl font-bold text-center mb-8">
+    Trending Cliparts
+  </h2>
+
+  {/* Yahan par 6 cliparts dikhenge */}
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+    {trendingCliparts.map(template => (
+      <TemplateCard 
+        key={template.id} 
+        template={template} 
+        onOpenModal={onOpenModal} 
+        onLike={onLike} 
+      />
+    ))}
+  </div>
+
+</div>
+{/* ===== Trending Cliparts Section END ===== */}
                     {/* How It Works Section for Home Page */}
 <div className="mt-24">
     <h2 className="text-3xl font-bold text-center mb-10">How It Works in 4 Simple Steps</h2>
