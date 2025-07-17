@@ -354,7 +354,7 @@ function Modal({ isOpen, onClose, template }) {
                                 <li>Click the WhatsApp button below.</li>
                                 <li>Send the pre-filled message with your details.</li>
                                 <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
-                                <li>You will receive your design within 30 minutes!</li>
+                                <li>You will receive your design within 60 minutes!</li>
                             </ol>
                         </div>
                          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
