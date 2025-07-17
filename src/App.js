@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown, Menu } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown, Menu, Crown } from 'lucide-react';
 
 // Placeholder for your details. Update this.
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
@@ -8,8 +8,8 @@ const initialTemplatesData = [
     // =================================================================
     // ======================= INVITATIONS CATEGORY ======================
     // =================================================================
-    { id: 1, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/F9QzwqV/ID1.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', likes: 252, tags: ['classic', 'floral', 'elegant invitation', 'wedding card'] },
-    { id: 2, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/hJTsSBxX/ID2.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1ysLv_Up-d-jv8t9soRMZqJ-bh-yps8bX/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1AmUoEiHsYKhnxarGlZ4iRrPG4XdMNJBt/view?usp=sharing' }, category: 'Invitations', likes: 481 },
+    { id: 1, name: 'Classic Invitation Template', price: '99', isPremium: true, previewImages: ['https://i.ibb.co/F9QzwqV/ID1.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1a8VNOPrTqV-vRekfjhrKvL2SgR2COjG0/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1JXz_Pmn5Zx0euBbM0rVB052JD-LMjjE5/view?usp=sharing' }, category: 'Invitations', likes: 252, tags: ['classic', 'floral', 'elegant invitation', 'wedding card'] },
+    { id: 2, name: 'Classic Invitation Template', price: '99', isPremium: true, previewImages: ['https://i.ibb.co/hJTsSBxX/ID2.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1ysLv_Up-d-jv8t9soRMZqJ-bh-yps8bX/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1AmUoEiHsYKhnxarGlZ4iRrPG4XdMNJBt/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 3, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/6JPTNYtx/ID3.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1TGOccFkayTgzvvZZ5A7TNK_1ZFl3cFtl/view?usp=sharing', JPG: 'https://drive.google.com/file/d/14FGucMO0lOqSAxp9M4U9T2UCgmeOAw_R/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 4, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/VczfNDGL/ID4.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/17xxGUfyT8nzw6nEirOTHYXuYYR_gOkPU/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1QYuxf6KzrDok7OplAckJQrBB1DauV9Cf/view?usp=sharing' }, category: 'Invitations', likes: 481 },
     { id: 5, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/B563HMXN/ID5.jpg'], downloadFormats: { PSD: 'https://drive.google.com/file/d/1FloCAxC6yS2oDqmxG6bMdW54XkawulBj/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1PMNoWGuMi8V0xpOW1tMP8C6xtZS_4F88/view?usp=sharing' }, category: 'Invitations', likes: 481 },
@@ -302,6 +302,15 @@ const Header = ({ onNavigate }) => {
 function TemplateCard({ template, onOpenModal, onLike }) {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden group relative transform transition-transform duration-300 hover:-translate-y-2">
+      
+      {/* ===== CROWN ICON WALA NAYA CODE YAHAN ADD KIYA GAYA HAI ===== */}
+      {template.isPremium && (
+        <div className="absolute top-2 left-2 bg-yellow-400 text-white p-1.5 rounded-full shadow-lg z-10" title="Premium Template">
+          <Crown size={18} />
+        </div>
+      )}
+      {/* ============================================================= */}
+
       <div onClick={() => onOpenModal(template)} className={`${(template.category === 'Invitations' || template.category === 'Save-the-Date') ? 'aspect-[4/6]' : 'aspect-square'} cursor-pointer`}>
         <img
           src={template.previewImages[0]}
@@ -348,22 +357,26 @@ function Modal({ isOpen, onClose, template }) {
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
                  {isCustomizable ? (
                     <div className="space-y-4">
-                        <div className="text-center p-4 bg-violet-50 rounded-lg">
-                            <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.price}</h4>
-                            <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
-                                <li>Click the WhatsApp button below.</li>
-                                <li>Send the pre-filled message with your details.</li>
-                                <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
-                                <li>You will receive your design within 60 minutes!</li>
-                            </ol>
-                        </div>
-                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
-                            <MessageSquare size={20}/> Chat on WhatsApp to Customise
-                        </a>
-                        <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
-                            <Download size={20}/> Download Open Files
-                        </button>
-                    </div>
+    <div className="text-center p-4 bg-violet-50 rounded-lg">
+        <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.isPremium ? '250' : template.price}</h4>
+        <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
+            <li>Click the WhatsApp button below.</li>
+            <li>Send the pre-filled message with your details.</li>
+            <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
+            <li>You will receive your design within 60 minutes!</li>
+        </ol>
+    </div>
+    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
+        <MessageSquare size={20}/> Chat on WhatsApp to Customise
+    </a>
+    
+    {!template.isPremium && (
+        <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
+            <Download size={20}/> Download Open Files
+        </button>
+    )}
+    {/* =================================== */}
+</div>
                 ) : (
                     <div className="space-y-4">
                          <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-violet-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-violet-700 transition-all duration-300">
