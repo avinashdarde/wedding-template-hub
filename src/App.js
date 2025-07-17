@@ -412,7 +412,7 @@ function Modal({ isOpen, onClose, template }) {
 
 const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
     const topTemplates = useMemo(() => 
-        [...templates].sort((a, b) => b.likes - a.likes).slice(0, 3), 
+        [...templates].sort((a, b) => b.likes - a.likes).slice(0, 6), 
         [templates]
     );
 
