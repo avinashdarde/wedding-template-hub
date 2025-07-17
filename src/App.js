@@ -438,7 +438,7 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
                     ))}
                 </div>
                     <div className="text-center mt-12">
-     <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
+     <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
         Explore All Templates
     </button>
 </div>
