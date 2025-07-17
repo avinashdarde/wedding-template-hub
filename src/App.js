@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown, Menu } from 'lucide-react';
 
