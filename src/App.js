@@ -370,12 +370,6 @@ function Modal({ isOpen, onClose, template }) {
         <MessageSquare size={20}/> Chat on WhatsApp to Customise
     </a>
     
-    {!template.isPremium && (
-        <button onClick={() => setModalView('download')} className="w-full flex items-center justify-center gap-3 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-300">
-            <Download size={20}/> Download Open Files
-        </button>
-    )}
-    {/* =================================== */}
 </div>
                 ) : (
                     <div className="space-y-4">
