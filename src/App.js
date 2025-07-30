@@ -433,10 +433,24 @@ function Modal({ isOpen, onClose, template }) {
 }
 
 const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
-    const topTemplates = useMemo(() => 
-        [...templates].sort((a, b) => b.likes - a.likes).slice(0, 6), 
+    // Puraane 'const topTemplates = ...' ko is poore code se replace karein
+    const topInvitationTemplates = useMemo(() =>
+        templates
+            .filter(t => t.category === 'Invitations') // Sirf Invitations chuno
+            .sort((a, b) => b.likes - a.likes) // Likes ke hisab se sort karo
+            .slice(0, 6), // Shuru ke 6 le lo
         [templates]
     );
+
+    const topSaveTheDateTemplates = useMemo(() =>
+        templates
+            .filter(t => t.category === 'Save-the-Date') // Sirf Save-the-Date chuno
+            .sort((a, b) => b.likes - a.likes) // Likes ke hisab se sort karo
+            .slice(0, 6), // Shuru ke 6 le lo
+        [templates]
+    );
+
+    const top12Templates = [...topInvitationTemplates, ...topSaveTheDateTemplates];
     
     const trendingCliparts = useMemo(() =>
   templates
@@ -462,11 +476,11 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
             </div>
             <div className="container mx-auto px-6 py-12">
                 <h2 className="text-3xl font-bold text-center mb-8">Top Liked Templates</h2>
-                <div className="grid grid-cols-3 lg:grid-cols-6 gap-4">
-                    {topTemplates.map(template => (
-                        <TemplateCard key={template.id} template={template} onOpenModal={onOpenModal} onLike={onLike} />
-                    ))}
-                </div>
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-4">
+          {top12Templates.map(template => (
+            <TemplateCard key={template.id} template={template} onOpenModal={onOpenModal} onLike={onLike} />
+          ))}
+        </div>
                     <div className="text-center mt-12">
      <button onClick={() => onNavigate('Templates')} className="bg-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-violet-700 transition-all text-lg">
         Explore All Templates
