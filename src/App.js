@@ -377,7 +377,7 @@ function Modal({ isOpen, onClose, template }) {
         <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
             <li>Click the WhatsApp button below.</li>
             <li>Send the pre-filled message with your details.</li>
-            <li>Make the payment on the UPI ID I provide on WhatsApp.</li>
+            <li>Make the payment on the UPI ID Or Paypal I provide on WhatsApp.</li>
             <li>You will receive your design within 60 minutes!</li>
         </ol>
     </div>
