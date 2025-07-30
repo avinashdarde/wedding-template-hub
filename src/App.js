@@ -8,13 +8,13 @@ const initialTemplatesData = [
     // =================================================================
     // ======================= INVITATIONS CATEGORY ======================
     // =================================================================
-    { id: 1, name: 'Classic Invitation Template', price: '99', isPremium: true, previewImages: ['https://i.ibb.co/F9QzwqV/ID1.jpg'], category: 'Invitations', likes: 252, tags: ['classic', 'floral', 'elegant invitation', 'wedding card'] },
-    { id: 2, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/hJTsSBxX/ID2.jpg'], category: 'Invitations', likes: 481 },
-    { id: 3, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/6JPTNYtx/ID3.jpg'], category: 'Invitations', likes: 481 },
-    { id: 4, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/VczfNDGL/ID4.jpg'], category: 'Invitations', likes: 481 },
-    { id: 5, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/B563HMXN/ID5.jpg'], category: 'Invitations', likes: 481 },
-    { id: 6, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/G447FtB1/ID6.jpg'], category: 'Invitations', likes: 481 },
-    { id: 7, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/3YNZXmTr/ID7.jpg'], category: 'Invitations', likes: 481 },
+    { id: 1, name: 'Classic Invitation Template', price: '99 / 2$', isPremium: true, previewImages: ['https://i.ibb.co/F9QzwqV/ID1.jpg'], category: 'Invitations', likes: 252, tags: ['classic', 'floral', 'elegant invitation', 'wedding card'] },
+    { id: 2, name: 'Classic Invitation Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/hJTsSBxX/ID2.jpg'], category: 'Invitations', likes: 481 },
+    { id: 3, name: 'Classic Invitation Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/6JPTNYtx/ID3.jpg'], category: 'Invitations', likes: 481 },
+    { id: 4, name: 'Classic Invitation Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/VczfNDGL/ID4.jpg'], category: 'Invitations', likes: 481 },
+    { id: 5, name: 'Classic Invitation Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/B563HMXN/ID5.jpg'], category: 'Invitations', likes: 481 },
+    { id: 6, name: 'Classic Invitation Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/G447FtB1/ID6.jpg'], category: 'Invitations', likes: 481 },
+    { id: 7, name: 'Classic Invitation Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/3YNZXmTr/ID7.jpg'], category: 'Invitations', likes: 481 },
     { id: 8, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/V03n9pYQ/ID8.jpg'], category: 'Invitations', likes: 481 },
     { id: 9, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/ZR8Pxdbk/ID9.jpg'], category: 'Invitations', likes: 481 },
     { id: 10, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/k2RbFYk4/ID10.jpg'], category: 'Invitations', likes: 481 },
