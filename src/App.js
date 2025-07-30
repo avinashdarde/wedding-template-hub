@@ -373,7 +373,7 @@ function Modal({ isOpen, onClose, template }) {
                  {isCustomizable ? (
                     <div className="space-y-4">
     <div className="text-center p-4 bg-violet-50 rounded-lg">
-        <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.isPremium ? '250' : template.price}</h4>
+        <h4 className="font-bold text-lg text-violet-800">Customization Price: ₹{template.isPremium ? '250 / 4$' : template.price}</h4>
         <ol className="text-left mt-4 space-y-2 text-gray-600 list-decimal list-inside">
             <li>Click the WhatsApp button below.</li>
             <li>Send the pre-filled message with your details.</li>
