@@ -99,7 +99,7 @@ const initialTemplatesData = [
     { id: 89, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/zThgYLjK/ID89.jpg'], category: 'Invitations', likes: 481 },
     { id: 90, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/RGR1zPP4/ID90.jpg'], category: 'Invitations', likes: 483 },
     { id: 91, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/q3Vb5njN/ID91.jpg'], category: 'Invitations', likes: 481 },
-    { id: 92, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/prnt5VZW/ID92.jpg'], dcategory: 'Invitations', likes: 481 },
+    { id: 92, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/prnt5VZW/ID92.jpg'], category: 'Invitations', likes: 481 },
     { id: 93, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/XrrVZzSV/ID93.jpg'], category: 'Invitations', likes: 500 },
     { id: 94, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/6JJxPcvW/ID94.jpg'], category: 'Invitations', likes: 481 },
     { id: 95, name: 'Classic Invitation Template', price: '99', previewImages: ['https://i.ibb.co/5hk82j6k/ID95.jpg'], category: 'Invitations', likes: 481 },
