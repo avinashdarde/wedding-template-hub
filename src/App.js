@@ -548,13 +548,15 @@ const TemplatesPage = ({ templates, onOpenModal, onLike }) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
 
     const filteredTemplates = useMemo(() => {
-        return templates.filter((template) => {
-          const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                      (template.tags && template.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())));
-          const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
-          return matchesSearch && matchesCategory;
-        });
-    }, [searchTerm, selectedCategory, templates]);
+        return templates
+          .filter((template) => {
+            const matchesSearch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                              (template.tags && template.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())));
+            const matchesCategory = selectedCategory === 'All' || template.category === selectedCategory;
+            return matchesSearch && matchesCategory;
+          })
+          .sort((a, b) => b.likes - a.likes);
+    }, [searchTerm, selectedCategory, templates]);
 
     const categories = useMemo(() => ['All', ...new Set(initialTemplatesData.map(t => t.category))], []);
 
