@@ -442,7 +442,7 @@ function Modal({ isOpen, onClose, template }) {
             
             // Step 4: Instagram chat kholein
             const instagramUsername = 'graphifily'; // <-- APNA USERNAME YAHAN DAALEIN
-            window.open(`https://ig.me/m/${instagramUsername}`, '_blank');
+            window.open(`https://ig.me/m/${graphifily}`, '_blank');
           }}
           className="w-full mt-2 flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300"
         >
