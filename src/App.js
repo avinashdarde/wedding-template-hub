@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown, Menu, Crown } from 'lucide-react';
+import { Search, Download, Heart, X, MessageSquare, Gift, Send, Wallet, ChevronDown, Menu, Crown, Instagram } from 'lucide-react';
 
 // Placeholder for your details. Update this.
 const YOUR_WHATSAPP_NUMBER = "919075469856"; // Replace with your WhatsApp number
@@ -429,6 +429,14 @@ function Modal({ isOpen, onClose, template }) {
     <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-all duration-300">
         <MessageSquare size={20}/> Chat on WhatsApp to Customise
     </a>
+        <a 
+          href={`https://ig.me/m/graphifly`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="w-full mt-2 flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all duration-300"
+        >
+          <Instagram size={20}/> Chat on Instagram
+        </a>
     
 </div>
                 ) : (
