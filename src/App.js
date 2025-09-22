@@ -207,112 +207,7 @@ const initialTemplatesData = [
     { id: 1022, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/pBmQdNsb/ID1022.jpg'], category: 'Save-the-Date', likes: 345 },
     { id: 1023, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/99FM94kx/ID1023.jpg'], category: 'Save-the-Date', likes: 345 },
     { id: 1024, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/n881Kgjg/ID1024.jpg'], category: 'Save-the-Date', likes: 345 },
-    { id: 1025, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/ZRRWJyYW/ID1025.jpg'], category: 'Save-the-Date', likes: 345 },
-
-    // =================================================================
-    // ======================= CLIPARTS ======================
-    // =================================================================
-    
-    { id: 2001, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/G3B3gbN7/wedding-couple-Illutraction-1.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1F3KaJ3DM_ujUI3GvV9D1pP60eu-K05RX/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1zQ6WgAF1TiJJSj_hUeRXAsKLO8K9LtPy/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1BbAezaAna-BnWhKbS4rfm2EYMY54jPkl/view?usp=sharing' }, category: 'Clipart', likes: 88 },
-    { id: 2002, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/SXCcGWH8/wedding-couple-Illutraction-2.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/17Ye3NKyku0EEbG_0Ytkb9WQW60FfY0m0/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1Aw3-u9zAW2gp-LQATC4PT9n7m151ucDU/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1QMKznT7OPIOmX6y2FLE8gyu29UrGUcCr/view?usp=sharing' }, category: 'Clipart', likes: 123 },
-    { id: 2003, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/fdqmYLz4/wedding-couple-Illutraction-3.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/19jH3-VlERrLez3p2fDjI47icGUl_r5AH/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1o9Vkcf0eRia2ZBKjj2W9lvsB5jgARdra/view?usp=sharing', JPG: 'https://drive.google.com/file/d/13DOC_xRcwwm9i4dipAKPqFggfOPVtCf4/view?usp=sharing' }, category: 'Clipart', likes: 210 },
-    { id: 2004, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/397g1RbM/wedding-couple-Illutraction-4.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/186Pu9G4r_R30Vx8aiwgbwOX1yetp1oEk/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1IuQCYoK3VB-rj5wcsVqI2v2bAH0-brVn/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1C48QboOGfA2Duim2CVjycTQuzs6UcRDq/view?usp=sharing' }, category: 'Clipart', likes: 210 },
-    { id: 2005, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/cXY1nRqM/wedding-couple-Illutraction-5.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1XwlDXNMgehZH84alkvZpHFO68WvBX8Y6/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1MTWVMZDaEK1dFz8-oebmiIlZXW6-FiwV/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1tWuLrMlvOeaO8z2zdZJY8udnovZAKyN3/view?usp=sharing' }, category: 'Clipart', likes: 210 },
-    { id: 2006, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/NdKmLKxy/wedding-couple-Illutraction-6.jpg'], downloadFormats: { PNG: 'https://drive.google.com/file/d/1xb6h7DIii7W8GFZz_Uuh4-cXWud_-Fmw/view?usp=sharing', EPS: 'https://drive.google.com/file/d/1g3iu6YvUIng8W3OXPR0e29wsRKvmmLwA/view?usp=sharing', JPG: 'https://drive.google.com/file/d/1RCxJGNGF7T7vpFRSY-0D_LXxTVfPuu8G/view?usp=sharing' }, category: 'Clipart', likes: 210 },
-    { id: 2007, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/nNm8ysZH/wedding-couple-Illutraction-7.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2008, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/pvFCJPWx/wedding-couple-Illutraction-8.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2009, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/nZGDg92/wedding-couple-Illutraction-9.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2010, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/wFJPfK4S/wedding-couple-Illutraction-10.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2011, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/6JBZM62w/wedding-couple-Illutraction-11.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2012, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/HTPHdsfy/wedding-couple-Illutraction-12.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2013, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/gMYL5nV0/wedding-couple-Illutraction-13.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2014, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/b5Wf8Ln4/wedding-couple-Illutraction-14.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2015, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/7NNjsYGZ/wedding-couple-Illutraction-15.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2016, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/4gDfJjZm/wedding-couple-Illutraction-16.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2017, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/twc8GM88/wedding-couple-Illutraction-17.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2018, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/jPNzC0Tj/wedding-couple-Illutraction-18.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2019, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/yFYrHVmK/wedding-couple-Illutraction-19.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2020, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/PGCf56Z2/wedding-couple-Illutraction-20.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2021, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/bRswPPqX/wedding-couple-Illutraction-21.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2022, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/DPpmk5K6/wedding-couple-Illutraction-22.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2023, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/CpsmN4nf/wedding-couple-Illutraction-23.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2024, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/qLNY7TdM/wedding-couple-Illutraction-24.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2025, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/fVW4mTpz/wedding-couple-Illutraction-25.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2026, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/KxzfnJFg/wedding-couple-Illutraction-26.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2027, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/N2r5mCDy/wedding-couple-Illutraction-27.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2028, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/1cpZCcX/wedding-couple-Illutraction-28.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2029, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/zh2Z5Frs/wedding-couple-Illutraction-29.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2030, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/xtxsJDjp/wedding-couple-Illutraction-30.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2031, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/QvPjc4gf/wedding-couple-Illutraction-31.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2032, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/8DK1skrX/wedding-couple-Illutraction-32.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2033, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/KjVdSFpp/wedding-couple-Illutraction-33.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2034, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/k2X3tdj2/wedding-couple-Illutraction-34.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2035, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/xtszjpKn/wedding-couple-Illutraction-35.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2036, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/VY5WfytF/wedding-couple-Illutraction-36.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2037, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/BHp5nnYk/wedding-couple-Illutraction-37.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2038, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/20jGRHKQ/wedding-couple-Illutraction-38.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2039, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/k2K364MM/wedding-couple-Illutraction-39.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2040, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/sMsQqPk/wedding-couple-Illutraction-40.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2041, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/pjTpwLdj/wedding-couple-Illutraction-41.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2042, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/tPxVyK0J/wedding-couple-Illutraction-42.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2043, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/WW366863/wedding-couple-Illutraction-43.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2044, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/Lhns68ST/wedding-couple-Illutraction-44.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2045, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/2Y6vbb8y/wedding-couple-Illutraction-45.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2046, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/k61KPybP/wedding-couple-Illutraction-46.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2047, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/Z6q9ZHx0/wedding-couple-Illutraction-47.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2048, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/5gVgnJBg/wedding-couple-Illutraction-48.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2049, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/SX1H3hD0/wedding-couple-Illutraction-49.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2050, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/mC3ymHgp/wedding-couple-Illutraction-50.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2051, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/MxjFhxgF/wedding-couple-Illutraction-51.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2052, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/LdWX4cRb/wedding-couple-Illutraction-52.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2053, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/KpCdLKz4/wedding-couple-Illutraction-53.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2054, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/fYGrHgSf/wedding-couple-Illutraction-54.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2055, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/RTQkK5rs/wedding-couple-Illutraction-55.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2056, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/9HkswmWb/wedding-couple-Illutraction-56.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2057, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/d0RKvdjX/wedding-couple-Illutraction-57.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2058, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/mCgD80s8/wedding-couple-Illutraction-58.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2059, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/N2N4w37N/wedding-couple-Illutraction-59.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2060, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/pBMmpf7Q/wedding-couple-Illutraction-60.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2061, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/99129Wfv/wedding-couple-Illutraction-61.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2062, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/gb7QZYYp/wedding-couple-Illutraction-62.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2063, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/pv8B1B1y/wedding-couple-Illutraction-63.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2064, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/LzyFh2GH/wedding-couple-Illutraction-64.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2065, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/B90s5Hm/wedding-couple-Illutraction-65.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2066, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/DH0vrpzV/wedding-couple-Illutraction-66.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2067, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/XkLsYfvV/wedding-couple-Illutraction-67.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2068, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/SX8B0chQ/wedding-couple-Illutraction-68.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2069, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/ycjhr1sv/wedding-couple-Illutraction-69.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2070, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/5WhX0g1w/wedding-couple-Illutraction-70.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2071, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/SSLp1BP/wedding-couple-Illutraction-71.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2072, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/Lz0bQ1gS/wedding-couple-Illutraction-72.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2073, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/pjS1n0yM/wedding-couple-Illutraction-73.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2074, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/fdGFSXqN/wedding-couple-Illutraction-74.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2075, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/Y4bgYKvn/wedding-couple-Illutraction-75.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2076, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/nMbWMjvL/wedding-couple-Illutraction-76.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2077, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/fVFBx3Zj/wedding-couple-Illutraction-77.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2078, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/TB62HqL6/wedding-couple-Illutraction-78.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2079, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/PsTMQ1bP/wedding-couple-Illutraction-79.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2080, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/9mMsTR8g/wedding-couple-Illutraction-80.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2081, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/yF0FzZDT/wedding-couple-Illutraction-81.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2082, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/KcSTPGtb/wedding-couple-Illutraction-82.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2083, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/1GNBXJCN/wedding-couple-Illutraction-83.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2084, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/Xf2zrPgz/wedding-couple-Illutraction-84.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2085, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/mrwY360b/wedding-couple-Illutraction-85.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2086, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/hFvcQ7Cq/wedding-couple-Illutraction-86.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2087, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/8gmgXRDq/wedding-couple-Illutraction-87.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2088, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/YFvzswx2/wedding-couple-Illutraction-88.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2089, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/k6sFpKRx/wedding-couple-Illutraction-89.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2090, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/KjcQfM7f/wedding-couple-Illutraction-90.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2091, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/JFQHqWRN/wedding-couple-Illutraction-91.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2092, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/8gdXtRFm/wedding-couple-Illutraction-92.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2093, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/gbVfkSHn/wedding-couple-Illutraction-93.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2094, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/N67DmzyH/wedding-couple-Illutraction-94.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2095, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/ZpXb39hw/wedding-couple-Illutraction-95.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2096, name: 'Wedding couple vector Clipart',  previewImages: ['https://i.ibb.co/9HTLbMFL/wedding-couple-Illutraction-96.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2097, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/Z6N1fzhy/wedding-couple-Illutraction-97.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2098, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/7NdFkgzz/wedding-couple-Illutraction-98.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2099, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/zWmgKFfH/wedding-couple-Illutraction-99.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 },
-    { id: 2100, name: 'Wedding couple vector Clipart', previewImages: ['https://i.ibb.co/8gxbYg3n/wedding-couple-Illutraction-100.jpg'], downloadFormats: { PNG: '#', JPG: '#' }, category: 'Clipart', likes: 210 }
+    { id: 1025, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/ZRRWJyYW/ID1025.jpg'], category: 'Save-the-Date', likes: 345 }
 ];
 
 const Header = ({ onNavigate }) => {
@@ -515,14 +410,6 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
     );
 
     const top12Templates = [...topInvitationTemplates, ...topSaveTheDateTemplates];
-    
-    const trendingCliparts = useMemo(() =>
-  templates
-    .filter(t => t.category === 'Clipart') // Pehle sirf 'Clipart' category waale designs chuno
-    .sort((a, b) => b.likes - a.likes)     // Fir unhe likes ke hisaab se sort karo
-    .slice(0, 6),                          // Aur shuru ke 6 le lo
-  [templates]
-);
 
     return (
         <>
@@ -550,28 +437,6 @@ const HomePage = ({ templates, onOpenModal, onLike, onNavigate }) => {
         Explore All Templates
     </button>
 </div>
-{/* ===== Trending Cliparts Section START ===== */}
-<div className="mt-20"> {/* Yeh upar waale section se thoda gap dega */}
-
-  {/* Section ki Heading */}
-  <h2 className="text-3xl font-bold text-center mb-8">
-    Trending Cliparts
-  </h2>
-
-  {/* Yahan par 6 cliparts dikhenge */}
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-    {trendingCliparts.map(template => (
-      <TemplateCard 
-        key={template.id} 
-        template={template} 
-        onOpenModal={onOpenModal} 
-        onLike={onLike} 
-      />
-    ))}
-  </div>
-
-</div>
-{/* ===== Trending Cliparts Section END ===== */}
                     {/* How It Works Section for Home Page */}
 <div className="mt-24">
     <h2 className="text-3xl font-bold text-center mb-10">How It Works in 4 Simple Steps</h2>
