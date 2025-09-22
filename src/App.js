@@ -212,8 +212,7 @@ const initialTemplatesData = [
     // =================================================================
     // ======================= VIDEOS CATEGORY =========================
     // =================================================================
-    {
-      id: 3001, // Har video ke liye alag ID dein (3002, 3003...)
+    { id: 3001, // Har video ke liye alag ID dein (3002, 3003...)
       name: 'Modern Video Invite',
       price: '149',
       isPremium: false,
@@ -224,8 +223,20 @@ const initialTemplatesData = [
       downloadFormats: { },
       category: 'Videos',
       likes: 180,
-      tags: ['video invitation', 'modern invite', 'e-invite']
-    },
+      tags: ['video invitation', 'modern invite', 'e-invite'] },
+    
+        { id: 3002, // Har video ke liye alag ID dein (3002, 3003...)
+      name: 'Modern Video Invite',
+      price: '149',
+      isPremium: false,
+      // Thumbnail ke liye imgbb.com jaisi site se hi link use karein
+      previewImages: ['https://i.ibb.co/wZsG7hF8/V2.jpg'], 
+      // Video ke liye seedha project ka link dein
+      previewVideo: '/videos/V2.mp4', 
+      downloadFormats: { },
+      category: 'Videos',
+      likes: 90,
+      tags: ['video invitation', 'modern invite', 'e-invite'] },
 ];
 
 const Header = ({ onNavigate }) => {
