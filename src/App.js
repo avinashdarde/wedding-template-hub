@@ -207,7 +207,25 @@ const initialTemplatesData = [
     { id: 1022, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/pBmQdNsb/ID1022.jpg'], category: 'Save-the-Date', likes: 345 },
     { id: 1023, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/99FM94kx/ID1023.jpg'], category: 'Save-the-Date', likes: 345 },
     { id: 1024, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/n881Kgjg/ID1024.jpg'], category: 'Save-the-Date', likes: 345 },
-    { id: 1025, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/ZRRWJyYW/ID1025.jpg'], category: 'Save-the-Date', likes: 345 }
+    { id: 1025, name: 'Wedding Save-the-Date Card Template', price: '99 / 2$', previewImages: ['https://i.ibb.co/ZRRWJyYW/ID1025.jpg'], category: 'Save-the-Date', likes: 345 },
+
+    // =================================================================
+    // ======================= VIDEOS CATEGORY =========================
+    // =================================================================
+    {
+      id: 3001, // Har video ke liye alag ID dein (3002, 3003...)
+      name: 'Modern Video Invite',
+      price: '149',
+      isPremium: false,
+      // Thumbnail ke liye imgbb.com jaisi site se hi link use karein
+      previewImages: ['https://i.ibb.co/fjkw7mT/V1.jpg'], 
+      // Video ke liye seedha project ka link dein
+      previewVideo: '/videos/V1.mp4', 
+      downloadFormats: { },
+      category: 'Videos',
+      likes: 180,
+      tags: ['video invitation', 'modern invite', 'e-invite']
+    },
 ];
 
 const Header = ({ onNavigate }) => {
@@ -302,14 +320,28 @@ function Modal({ isOpen, onClose, template }) {
     if (!isOpen || !template) return null;
 
     const renderMainView = () => {
-        const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date';
+        const isCustomizable = template.category === 'Invitations' || template.category === 'Save-the-Date' || template.category === 'Videos';
         const whatsappMessage = `Hi, I want to customise template ID: ${template.id} - ${template.name}. Please provide payment details.`;
         const encodedMessage = encodeURIComponent(whatsappMessage);
         const whatsappLink = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+        // Naya hissa video/image dikhane ke liye
+const MediaPreview = (
+  <div className="mb-4 rounded-lg overflow-hidden shadow-lg bg-gray-200">
+    {template.previewVideo ? (
+      <video src={template.previewVideo} className="w-full h-auto" controls autoPlay loop muted>
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <img src={template.previewImages[0]} alt={`${template.name} Preview`} className="w-full h-auto object-cover" />
+    )}
+  </div>
+);
 
         return (
             <>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
+                 {MediaPreview}
+                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
+                 <h3 className="text-2xl font-bold text-gray-800 mb-4">{template.name}</h3>
                  {isCustomizable ? (
                     <div className="space-y-4">
     <div className="text-center p-4 bg-violet-50 rounded-lg">
@@ -381,7 +413,7 @@ function Modal({ isOpen, onClose, template }) {
 
     return (
       <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative" onClick={(e) => e.stopPropagation()}>
+        <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg p-5 relative overflow-y-auto max-h-[90vh]" ...>
           <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition-colors">
             <X size={24} />
           </button>
